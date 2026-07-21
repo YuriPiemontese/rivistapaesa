@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>La Nostra Rivista</title>
+
+  <!-- Google Fonts: Old Standard TT -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Old+Standard+TT:wght@700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ==========================================
+       1. Font Personalizzati
+       ========================================== */
+    @font-face {
+      font-family: 'Archive Garamond Pro';
+      src: url('_fonts/ArchiveGaramondPro-Regular.woff2') format('woff2'),
+           url('_fonts/ArchiveGaramondPro-Regular.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
+
+    @font-face {
+      font-family: 'TrixiePro';
+      src: url('_fonts/TrixiePro-Heavy.woff2') format('woff2'),
+           url('_fonts/TrixiePro-Heavy.ttf') format('truetype');
+      font-weight: 900;
+      font-style: normal;
+    }
+
+    /* ==========================================
+       2. Stili Generali e Animazioni
+       ========================================== */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: rgba(210, 166, 85, 0.1);
+      color: #464228;
+      font-family: 'Archive Garamond Pro', Georgia, serif;
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+
+    /* Keyframes Animazione a comparsa dalla linea di base */
+    @keyframes comparsaBase {
+      from {
+        opacity: 0;
+        transform: translateY(25px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .animato-base {
+      animation: comparsaBase 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    h1, h2, .titolo-hero {
+      font-family: 'Old Standard TT', serif;
+      font-weight: 700;
+      color: #464228;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+
+    .subtitle, figcaption, .caption, .btn-articolo {
+      font-family: 'TrixiePro', monospace, sans-serif;
+      font-weight: 900;
+    }
+
+    /* ==========================================
+       3. Header
+       ========================================== */
+    header {
+      width: 100%;
+      border-bottom: 1px solid rgba(70, 66, 40, 0.2);
+      padding: 20px 40px;
+    }
+
+    .header-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 25px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #464228;
+      font-size: 1.05rem;
+      text-transform: lowercase;
+      transition: opacity 0.2s ease;
+    }
+
+    nav a:hover {
+      opacity: 0.6;
+    }
+
+    .logo-container img {
+      max-height: 55px;
+      width: auto;
+      display: block;
+    }
+
+    /* ==========================================
+       4. Landing / Carosello
+       ========================================== */
+    .hero-landing {
+      max-width: 1200px;
+      margin: 40px auto 80px auto;
+      padding: 0 40px;
+    }
+
+    .carosello-container {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      margin-bottom: 40px;
+      border-radius: 4px;
+    }
+
+    .carosello-slides {
+      display: flex;
+      transition: transform 0.6s ease-in-out;
+      width: 100%;
+    }
+
+    .slide {
+      min-width: 100%;
+      box-sizing: border-box;
+    }
+
+    .slide img {
+      width: 100%;
+      height: 450px;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* Impaginato a cascata che parte da 1/3 (33.33%) da sinistra */
+    .hero-cascata {
+      margin-left: 33.33%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 15px;
+    }
+
+    .titolo-hero {
+      font-size: 4rem; /* Più grande di un normale h1 */
+      line-height: 1.1;
+    }
+
+    .hero-cascata .subtitle {
+      font-size: 1.2rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .btn-articolo {
+      display: inline-block;
+      background-color: #000000;
+      color: #ffffff;
+      padding: 12px 24px;
+      text-decoration: none;
+      text-transform: uppercase;
+      font-size: 0.95rem;
+      border: none;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: background-color 0.2s ease;
+    }
+
+    .btn-articolo:hover {
+      background-color: #333333;
+    }
+
+    /* ==========================================
+       5. Sezioni Generali
+       ========================================== */
+    section.sezione-sito {
+      max-width: 1200px;
+      margin: 80px auto;
+      padding: 0 40px;
+      border-top: 1px solid rgba(70, 66, 40, 0.15);
+      padding-top: 40px;
+    }
+
+    .btn-download {
+      display: inline-block;
+      margin: 15px 0;
+      padding: 10px 20px;
+      border: 1px solid #464228;
+      color: #464228;
+      text-decoration: none;
+      font-family: 'TrixiePro', monospace;
+      font-size: 0.9rem;
+    }
+
+    .btn-download:hover {
+      background-color: rgba(70, 66, 40, 0.1);
+    }
+
+    .link-mail {
+      color: #464228;
+      font-weight: bold;
+      text-decoration: underline;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero-cascata {
+        margin-left: 0;
+      }
+      .titolo-hero {
+        font-size: 2.8rem;
+      }
+      .slide img {
+        height: 280px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="header-container">
+      <nav>
+        <ul>
+          <li><a href="#chi-siamo">chi siamo</a></li>
+          <li><a href="#contattaci">contattaci</a></li>
+          <li><a href="#articoli">articoli</a></li>
+          <li><a href="#racconti">racconti</a></li>
+          <li><a href="#poesie">poesie</a></li>
+        </ul>
+      </nav>
+
+      <div class="logo-container">
+        <a href="/">
+          <img src="_assets/logo.png" alt="Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+          <span class="caption" style="display:none;">[LOGO]</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Sezione 1: Landing con Carosello e Contenuto a Cascata -->
+    <section class="hero-landing">
+      <!-- Carosello Immagini -->
+      <div class="carosello-container">
+        <div class="carosello-slides" id="caroselloSlides">
+          <div class="slide"><img src="_assets/foto1.jpg" alt="Foto 1" onerror="this.src='https://via.placeholder.com/1200x450/d2a655/464228?text=Foto+1'"></div>
+          <div class="slide"><img src="_assets/foto2.jpg" alt="Foto 2" onerror="this.src='https://via.placeholder.com/1200x450/a68342/ffffff?text=Foto+2'"></div>
+          <div class="slide"><img src="_assets/foto3.jpg" alt="Foto 3" onerror="this.src='https://via.placeholder.com/1200x450/464228/ffffff?text=Foto+3'"></div>
+          <div class="slide"><img src="_assets/foto4.jpg" alt="Foto 4" onerror="this.src='https://via.placeholder.com/1200x450/8a6a30/ffffff?text=Foto+4'"></div>
+        </div>
+      </div>
+
+      <!-- Impaginato a Cascata da 1/3 di pagina -->
+      <div class="hero-cascata" id="heroCascata">
+        <h1 class="titolo-hero animato-base" id="heroTitolo">Titolo dell'Articolo 1</h1>
+        <p class="subtitle animato-base" id="heroSottotitolo">Sottotitolo o Didascalia in TrixiePro</p>
+        <a href="#" class="btn-articolo animato-base" id="heroBtn">vai all'articolo</a>
+      </div>
+    </section>
+
+    <!-- Sezione 2: Chi Siamo -->
+    <section id="chi-siamo" class="sezione-sito">
+      <h1 class="animato-base">Chi Siamo</h1>
+      <p class="animato-base">Siamo uno spazio libero dedicato alla diffusione di storie, saggi, visioni e poesie. La nostra missione è raccogliere voci ed espressioni capaci di raccontare il presente con uno sguardo profondo e privo di condizionamenti.</p>
+    </section>
+
+    <!-- Sezione 3: Contattaci -->
+    <section id="contattaci" class="sezione-sito">
+      <h1 class="animato-base">Contattaci</h1>
+      <p class="animato-base">Vuoi collaborare con noi o inviarci i tuoi testi? Scarica prima le nostre linee guida editoriali:</p>
+      
+      <p class="animato-base">
+        <a href="_assets/specifiche-editoriali.pdf" download class="btn-download">scarica specifiche editoriali (PDF)</a>
+      </p>
+
+      <p class="animato-base">Puoi scriverci direttamente all'indirizzo email: 
+        <a href="mailto:rivista.paesa@libero.it" class="link-mail">rivista.paesa@libero.it</a>
+      </p>
+    </section>
+
+    <!-- Sezione 4: Articoli -->
+    <section id="articoli" class="sezione-sito">
+      <h1 class="animato-base">Articoli</h1>
+      <!-- Spazio riservato alla griglia/lista articoli -->
+    </section>
+
+    <!-- Sezione 5: Poesie -->
+    <section id="poesie" class="sezione-sito">
+      <h1 class="animato-base">Poesie</h1>
+      <!-- Spazio riservato alla griglia/lista poesie -->
+    </section>
+
+    <!-- Sezione 6: Racconti -->
+    <section id="raccenti" class="sezione-sito">
+      <h1 class="animato-base">Racconti</h1>
+      <!-- Spazio riservato alla griglia/lista racconti -->
+    </section>
+  </main>
+
+  <!-- Script Carosello & Animazioni -->
+  <script>
+    // Dati dei 4 articoli del carosello (titoli, sottotitoli e link)
+    const datiSlides = [
+      {
+        titolo: "Titolo dell'Articolo 1",
+        sottotitolo: "Primo sottotitolo descrittivo del pezzo",
+        link: "#articolo-1"
+      },
+      {
+        titolo: "Titolo dell'Articolo 2",
+        sottotitolo: "Secondo sottotitolo relativo alla slide 2",
+        link: "#articolo-2"
+      },
+      {
+        titolo: "Titolo dell'Articolo 3",
+        sottotitolo: "Terzo articolo in evidenza nella rivista",
+        link: "#articolo-3"
+      },
+      {
+        titolo: "Titolo dell'Articolo 4",
+        sottotitolo: "Quarto ed ultimo contenuto del carosello",
+        link: "#articolo-4"
+      }
+    ];
+
+    let indiceCorrente = 0;
+    const slidesContainer = id("caroselloSlides");
+    const elTitolo = id("heroTitolo");
+    const elSottotitolo = id("heroSottotitolo");
+    const elBtn = id("heroBtn");
+
+    function id(nome) { return document.getElementById(nome); }
+
+    function aggiornaSlide() {
+      indiceCorrente = (indiceCorrente + 1) % datiSlides.length;
+
+      // Scorrimento immagine
+      slidesContainer.style.transform = `translateX(-${indiceCorrente * 100}%)`;
+
+      // Riavvia animazione comparsa per i testi
+      [elTitolo, elSottotitolo, elBtn].forEach(el => {
+        el.classList.remove("animato-base");
+        void el.offsetWidth; // Trigger reflow per riavviare l'animazione
+        el.classList.add("animato-base");
+      });
+
+      // Aggiorna contenuti
+      elTitolo.textContent = datiSlides[indiceCorrente].titolo;
+      elSottotitolo.textContent = datiSlides[indiceCorrente].sottotitolo;
+      elBtn.href = datiSlides[indiceCorrente].link;
+    }
+
+    // Timer carosello ogni 3 secondi (3000 ms)
+    setInterval(aggiornaSlide, 3000);
+  </script>
+
+</body>
+</html>
