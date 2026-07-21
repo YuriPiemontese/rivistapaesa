@@ -12,7 +12,7 @@
 
   <style>
     /* ==========================================
-       1. Font Personalizzati (PERCORSI RELATIVI CORRETTI)
+       1. Font Personalizzati
        ========================================== */
     @font-face {
       font-family: 'Archive Garamond Pro';
@@ -49,7 +49,7 @@
     }
 
     @keyframes comparsaBase {
-      from { opacity: 0; transform: translateY(25px); }
+      from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
     }
 
@@ -112,11 +112,11 @@
     }
 
     /* ==========================================
-       4. Landing / Carosello
+       4. Landing / Carosello con Testo in Overlay
        ========================================== */
     .hero-landing {
       max-width: 1200px;
-      margin: 40px auto 80px auto;
+      margin: 30px auto 60px auto;
       padding: 0 40px;
     }
 
@@ -124,7 +124,6 @@
       position: relative;
       width: 100%;
       overflow: hidden;
-      margin-bottom: 40px;
       border-radius: 4px;
     }
 
@@ -141,12 +140,13 @@
 
     .slide img {
       width: 100%;
-      height: 450px;
+      height: 500px;
       object-fit: cover;
       display: block;
-      opacity: 0.9;
+      opacity: 0.85; /* Leggera trasparenza per far risaltare il testo */
     }
 
+    /* Frecce Minimali */
     .carosello-btn {
       position: absolute;
       top: 0;
@@ -158,7 +158,7 @@
       font-size: 3.5rem;
       font-weight: 100;
       cursor: pointer;
-      z-index: 10;
+      z-index: 20;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -185,23 +185,37 @@
       filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.4));
     }
 
+    /* Impaginato a Cascata SOVRAPPOSTO (OVERLAY) da 1/3 da sinistra */
     .hero-cascata {
-      margin-left: 33.33%;
+      position: absolute;
+      bottom: 40px;
+      left: 33.33%;
+      right: 40px;
+      z-index: 15;
       display: flex;
       flex-direction: column;
       align-items: flex-start;
-      gap: 15px;
+      gap: 12px;
+      pointer-events: none; /* Permette il click sull'immagine sotto se necessario */
+    }
+
+    .hero-cascata * {
+      pointer-events: auto; /* Riattiva i click sui pulsanti e link del testo */
     }
 
     .titolo-hero {
-      font-size: 4rem;
-      line-height: 1.1;
+      font-size: 3.8rem;
+      line-height: 1.05;
+      color: #ffffff;
+      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
     }
 
     .subtitle {
       font-size: 1.2rem;
       text-transform: uppercase;
       letter-spacing: 1px;
+      color: #f0f0f0;
+      text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
     }
 
     .btn-articolo {
@@ -215,10 +229,14 @@
       border: none;
       cursor: pointer;
       margin-top: 5px;
-      transition: background-color 0.2s ease;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      transition: background-color 0.2s ease, transform 0.2s ease;
     }
 
-    .btn-articolo:hover { background-color: #333333; }
+    .btn-articolo:hover {
+      background-color: #333333;
+      transform: translateY(-2px);
+    }
 
     /* ==========================================
        5. Sezioni Generali
@@ -246,9 +264,14 @@
     .link-mail { color: #464228; font-weight: bold; text-decoration: underline; }
 
     @media (max-width: 768px) {
-      .hero-cascata { margin-left: 0; }
-      .titolo-hero { font-size: 2.8rem; }
-      .slide img { height: 280px; }
+      .hero-cascata {
+        left: 20px;
+        right: 20px;
+        bottom: 25px;
+      }
+      .titolo-hero { font-size: 2.3rem; }
+      .subtitle { font-size: 1rem; }
+      .slide img { height: 380px; }
       .carosello-btn { width: 50px; font-size: 2.5rem; }
     }
   </style>
@@ -284,17 +307,18 @@
         <button class="carosello-btn next" onclick="nextSlide()" aria-label="Avanti"><span>&#8250;</span></button>
 
         <div class="carosello-slides" id="caroselloSlides">
-          <div class="slide"><img src="_assets/foto1.jpg" alt="Foto 1" onerror="this.src='https://via.placeholder.com/1200x450/d2a655/464228?text=Foto+1'"></div>
-          <div class="slide"><img src="_assets/foto2.jpg" alt="Foto 2" onerror="this.src='https://via.placeholder.com/1200x450/a68342/ffffff?text=Foto+2'"></div>
-          <div class="slide"><img src="_assets/foto3.jpg" alt="Foto 3" onerror="this.src='https://via.placeholder.com/1200x450/464228/ffffff?text=Foto+3'"></div>
-          <div class="slide"><img src="_assets/foto4.jpg" alt="Foto 4" onerror="this.src='https://via.placeholder.com/1200x450/8a6a30/ffffff?text=Foto+4'"></div>
+          <div class="slide"><img src="_assets/foto1.jpg" alt="Foto 1" onerror="this.src='https://via.placeholder.com/1200x500/d2a655/464228?text=Foto+1'"></div>
+          <div class="slide"><img src="_assets/foto2.jpg" alt="Foto 2" onerror="this.src='https://via.placeholder.com/1200x500/a68342/ffffff?text=Foto+2'"></div>
+          <div class="slide"><img src="_assets/foto3.jpg" alt="Foto 3" onerror="this.src='https://via.placeholder.com/1200x500/464228/ffffff?text=Foto+3'"></div>
+          <div class="slide"><img src="_assets/foto4.jpg" alt="Foto 4" onerror="this.src='https://via.placeholder.com/1200x500/8a6a30/ffffff?text=Foto+4'"></div>
         </div>
-      </div>
 
-      <div class="hero-cascata">
-        <h1 class="titolo-hero animato-base" id="heroTitolo">Titolo dell'Articolo 1</h1>
-        <p class="subtitle animato-base" id="heroSottotitolo">Sottotitolo in TrixiePro Heavy</p>
-        <a href="#" class="btn-articolo animato-base" id="heroBtn">vai all'articolo</a>
+        <!-- Impaginato a Cascata SOVRAPPOSTO all'immagine -->
+        <div class="hero-cascata">
+          <h1 class="titolo-hero animato-base" id="heroTitolo">Titolo dell'Articolo 1</h1>
+          <p class="subtitle animato-base" id="heroSottotitolo">Sottotitolo in TrixiePro Heavy</p>
+          <a href="#" class="btn-articolo animato-base" id="heroBtn">vai all'articolo</a>
+        </div>
       </div>
     </section>
 
