@@ -12,20 +12,20 @@
 
   <style>
     /* ==========================================
-       1. Font Personalizzati (Virgolette Doppie & _)
+       1. Font Personalizzati
        ========================================== */
     @font-face {
       font-family: "Archive Garamond Pro";
-      src: url("_fonts/ArchiveGaramondPro-Regular.woff2") format("woff2"),
-           url("_fonts/ArchiveGaramondPro-Regular.ttf") format("truetype");
+      src: url("fonts/ArchiveGaramondPro-Regular.woff2") format("woff2"),
+           url("fonts/ArchiveGaramondPro-Regular.ttf") format("truetype");
       font-weight: normal;
       font-style: normal;
     }
 
     @font-face {
       font-family: "TrixiePro";
-      src: url("_fonts/TrixiePro-Heavy.woff2") format("woff2"),
-           url("_fonts/TrixiePro-Heavy.ttf") format("truetype");
+      src: url("fonts/TrixiePro-Heavy.woff2") format("woff2"),
+           url("fonts/TrixiePro-Heavy.ttf") format("truetype");
       font-weight: 900;
       font-style: normal;
     }
@@ -112,7 +112,7 @@
     }
 
     /* ==========================================
-       4. Hero Section & Carosello (Senza Ombre)
+       4. Hero Section & Carosello
        ========================================== */
     .hero-landing {
       max-width: 1200px;
@@ -146,7 +146,7 @@
       opacity: 0.85;
     }
 
-    /* Frecce Molto Più Grandi (x4) e Senza Ombra */
+    /* Frecce Grandi e Sottili */
     .carosello-btn {
       position: absolute;
       top: 0;
@@ -169,22 +169,18 @@
     .carosello-btn span {
       display: inline-block;
       transition: transform 0.3s ease;
-      font-family: sans-serif;
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-weight: 100;
       line-height: 1;
     }
 
     .carosello-btn.prev { left: 0; justify-content: flex-start; padding-left: 20px; }
     .carosello-btn.next { right: 0; justify-content: flex-end; padding-right: 20px; }
 
-    .carosello-btn.prev:hover span {
-      transform: translateX(-10px);
-    }
+    .carosello-btn.prev:hover span { transform: translateX(-10px); }
+    .carosello-btn.next:hover span { transform: translateX(10px); }
 
-    .carosello-btn.next:hover span {
-      transform: translateX(10px);
-    }
-
-    /* Impaginato a Cascata SOVRAPPOSTO (Senza Ombre) */
+    /* Impaginato Overlay */
     .hero-cascata {
       position: absolute;
       bottom: 40px;
@@ -282,14 +278,14 @@
           <li><a href="#chi-siamo">chi siamo</a></li>
           <li><a href="#contattaci">contattaci</a></li>
           <li><a href="#articoli">articoli</a></li>
-          <li><a href="#racconti">racconti</a></li>
+          <li><a href="#raccenti">racconti</a></li>
           <li><a href="#poesie">poesie</a></li>
         </ul>
       </nav>
 
       <div class="logo-container">
         <a href="/">
-          <img src="_assets/paesa-logo.png" alt="PAESA Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+          <img src="assets/paesa-logo.png" alt="PAESA Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
           <span class="caption" style="display:none;">[LOGO PAESA]</span>
         </a>
       </div>
@@ -303,10 +299,10 @@
         <button class="carosello-btn next" onclick="nextSlide()" aria-label="Avanti"><span>&#8250;</span></button>
 
         <div class="carosello-slides" id="caroselloSlides">
-          <div class="slide"><img src="_assets/foto1.jpg" alt="Foto 1" class="img-fluid" onerror="this.src='https://via.placeholder.com/1200x500/d2a655/464228?text=Foto+1'"></div>
-          <div class="slide"><img src="_assets/foto2.jpg" alt="Foto 2" class="img-fluid" onerror="this.src='https://via.placeholder.com/1200x500/a68342/ffffff?text=Foto+2'"></div>
-          <div class="slide"><img src="_assets/foto3.jpg" alt="Foto 3" class="img-fluid" onerror="this.src='https://via.placeholder.com/1200x500/464228/ffffff?text=Foto+3'"></div>
-          <div class="slide"><img src="_assets/foto4.jpg" alt="Foto 4" class="img-fluid" onerror="this.src='https://via.placeholder.com/1200x500/8a6a30/ffffff?text=Foto+4'"></div>
+          <div class="slide"><img src="assets/foto1.jpg" alt="Foto 1" class="img-fluid" onerror="this.src='https://via.placeholder.com/1200x500/d2a655/464228?text=Foto+1'"></div>
+          <div class="slide"><img src="assets/foto2.jpg" alt="Foto 2" class="img-fluid" onerror="this.src='https://via.placeholder.com/1200x500/a68342/ffffff?text=Foto+2'"></div>
+          <div class="slide"><img src="assets/foto3.jpg" alt="Foto 3" class="img-fluid" onerror="this.src='https://via.placeholder.com/1200x500/464228/ffffff?text=Foto+3'"></div>
+          <div class="slide"><img src="assets/foto4.jpg" alt="Foto 4" class="img-fluid" onerror="this.src='https://via.placeholder.com/1200x500/8a6a30/ffffff?text=Foto+4'"></div>
         </div>
 
         <div class="hero-cascata">
@@ -325,7 +321,7 @@
     <section id="contattaci" class="sezione-sito">
       <h1 class="animato-base">Contattaci</h1>
       <p class="animato-base">Scaricare prima le nostre linee guida editoriali:</p>
-      <p class="animato-base"><a href="_assets/specifiche-editoriali.pdf" download class="btn-download">scarica specifiche editoriali (PDF)</a></p>
+      <p class="animato-base"><a href="assets/specifiche-editoriali.pdf" download class="btn-download">scarica specifiche editoriali (PDF)</a></p>
       <p class="animato-base">Email: <a href="mailto:rivista.paesa@libero.it" class="link-mail">rivista.paesa@libero.it</a></p>
     </section>
 
