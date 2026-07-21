@@ -57,7 +57,7 @@
       animation: comparsaBase 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
     }
 
-    h1, h2, .titolo-hero {
+    h1, h2 {
       font-family: "Old Standard TT", serif;
       font-weight: 700;
       color: #464228;
@@ -68,7 +68,7 @@
       margin-bottom: 20px;
     }
 
-    .subtitle, figcaption, .caption, .btn-articolo {
+    figcaption, .caption, .btn-articolo {
       font-family: "TrixiePro", monospace, sans-serif;
       font-weight: 900;
     }
@@ -78,11 +78,15 @@
        ========================================== */
     header {
       width: 100%;
+      height: 90px;
       border-bottom: 1px solid rgba(70, 66, 40, 0.2);
-      padding: 20px 40px;
+      padding: 0 40px;
+      display: flex;
+      align-items: center;
     }
 
     .header-container {
+      width: 100%;
       max-width: 1200px;
       margin: 0 auto;
       display: flex;
@@ -112,17 +116,21 @@
     }
 
     /* ==========================================
-       4. Hero Section & Carosello
+       4. Hero Section & Carosello (A Tutto Schermo)
        ========================================== */
     .hero-landing {
       max-width: 1200px;
-      margin: 30px auto 60px auto;
+      margin: 0 auto;
       padding: 0 40px;
+      height: calc(100vh - 90px); /* Occupa tutto lo schermo verticale tranne l'header */
+      display: flex;
+      align-items: center;
     }
 
     .carosello-container {
       position: relative;
       width: 100%;
+      height: 100%;
       overflow: hidden;
       border-radius: 4px;
     }
@@ -131,19 +139,19 @@
       display: flex;
       transition: transform 0.6s ease-in-out;
       width: 100%;
+      height: 100%;
     }
 
     .slide {
       min-width: 100%;
-      box-sizing: border-box;
+      height: 100%;
     }
 
     .slide img {
       width: 100%;
-      height: 500px;
+      height: 100%;
       object-fit: cover;
       display: block;
-      opacity: 0.85;
     }
 
     /* Frecce Grandi e Sottili */
@@ -180,35 +188,12 @@
     .carosello-btn.prev:hover span { transform: translateX(-10px); }
     .carosello-btn.next:hover span { transform: translateX(10px); }
 
-    /* Impaginato Overlay */
+    /* Posizionamento del Pulsante dell'Articolo */
     .hero-cascata {
       position: absolute;
       bottom: 40px;
-      left: 33.33%;
-      right: 40px;
+      left: 40px;
       z-index: 15;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 12px;
-      pointer-events: none;
-    }
-
-    .hero-cascata * {
-      pointer-events: auto;
-    }
-
-    .titolo-hero {
-      font-size: 3.8rem;
-      line-height: 1.05;
-      color: #ffffff;
-    }
-
-    .subtitle {
-      font-size: 1.2rem;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      color: #f0f0f0;
     }
 
     .btn-articolo {
@@ -221,7 +206,6 @@
       font-size: 0.95rem;
       border: none;
       cursor: pointer;
-      margin-top: 5px;
       transition: background-color 0.2s ease, transform 0.2s ease;
     }
 
@@ -256,14 +240,7 @@
     .link-mail { color: #464228; font-weight: bold; text-decoration: underline; }
 
     @media (max-width: 768px) {
-      .hero-cascata {
-        left: 20px;
-        right: 20px;
-        bottom: 25px;
-      }
-      .titolo-hero { font-size: 2.3rem; }
-      .subtitle { font-size: 1rem; }
-      .slide img { height: 380px; }
+      .hero-cascata { bottom: 25px; left: 20px; }
       .carosello-btn { width: 70px; font-size: 6rem; }
     }
   </style>
@@ -278,7 +255,7 @@
           <li><a href="#chi-siamo">chi siamo</a></li>
           <li><a href="#contattaci">contattaci</a></li>
           <li><a href="#articoli">articoli</a></li>
-          <li><a href="#raccenti">racconti</a></li>
+          <li><a href="#racconti">racconti</a></li>
           <li><a href="#poesie">poesie</a></li>
         </ul>
       </nav>
@@ -299,15 +276,13 @@
         <button class="carosello-btn next" onclick="nextSlide()" aria-label="Avanti"><span>&#8250;</span></button>
 
         <div class="carosello-slides" id="caroselloSlides">
-          <div class="slide"><img src="assets/foto1.jpg" alt="Foto 1" class="img-fluid" onerror="this.src='https://via.placeholder.com/1200x500/d2a655/464228?text=Foto+1'"></div>
-          <div class="slide"><img src="assets/foto2.jpg" alt="Foto 2" class="img-fluid" onerror="this.src='https://via.placeholder.com/1200x500/a68342/ffffff?text=Foto+2'"></div>
-          <div class="slide"><img src="assets/foto3.jpg" alt="Foto 3" class="img-fluid" onerror="this.src='https://via.placeholder.com/1200x500/464228/ffffff?text=Foto+3'"></div>
-          <div class="slide"><img src="assets/foto4.jpg" alt="Foto 4" class="img-fluid" onerror="this.src='https://via.placeholder.com/1200x500/8a6a30/ffffff?text=Foto+4'"></div>
+          <div class="slide"><img src="assets/foto1.jpg" alt="Foto 1" onerror="this.src='https://via.placeholder.com/1920x1080/d2a655/464228?text=Foto+1'"></div>
+          <div class="slide"><img src="assets/foto2.jpg" alt="Foto 2" onerror="this.src='https://via.placeholder.com/1920x1080/a68342/ffffff?text=Foto+2'"></div>
+          <div class="slide"><img src="assets/foto3.jpg" alt="Foto 3" onerror="this.src='https://via.placeholder.com/1920x1080/464228/ffffff?text=Foto+3'"></div>
+          <div class="slide"><img src="assets/foto4.jpg" alt="Foto 4" onerror="this.src='https://via.placeholder.com/1920x1080/8a6a30/ffffff?text=Foto+4'"></div>
         </div>
 
         <div class="hero-cascata">
-          <h1 class="titolo-hero animato-base" id="heroTitolo">Titolo dell'Articolo 1</h1>
-          <p class="subtitle animato-base" id="heroSottotitolo">Sottotitolo in TrixiePro Heavy</p>
           <a href="#" class="btn-articolo animato-base" id="heroBtn">vai all'articolo</a>
         </div>
       </div>
@@ -331,17 +306,16 @@
   </main>
 
   <script>
-    const datiSlides = [
-      { titolo: "Titolo dell'Articolo 1", sottotitolo: "Sottotitolo 1 descrittivo", link: "#articolo-1" },
-      { titolo: "Titolo dell'Articolo 2", sottotitolo: "Sottotitolo 2 relativo", link: "#articolo-2" },
-      { titolo: "Titolo dell'Articolo 3", sottotitolo: "Terzo pezzo in evidenza", link: "#articolo-3" },
-      { titolo: "Titolo dell'Articolo 4", sottotitolo: "Quarto contenuto della slide", link: "#articolo-4" }
+    // Manteniamo solo i link per ciascuna slide
+    const linkSlides = [
+      "#articolo-1",
+      "#articolo-2",
+      "#articolo-3",
+      "#articolo-4"
     ];
 
     let indiceCorrente = 0;
     const slidesContainer = document.getElementById("caroselloSlides");
-    const elTitolo = document.getElementById("heroTitolo");
-    const elSottotitolo = document.getElementById("heroSottotitolo");
     const elBtn = document.getElementById("heroBtn");
 
     function resetTimer() {
@@ -351,32 +325,27 @@
 
     function aggiornaSlide() {
       slidesContainer.style.transform = `translateX(-${indiceCorrente * 100}%)`;
+      elBtn.href = linkSlides[indiceCorrente];
 
-      elTitolo.textContent = datiSlides[indiceCorrente].titolo;
-      elSottotitolo.textContent = datiSlides[indiceCorrente].sottotitolo;
-      elBtn.href = datiSlides[indiceCorrente].link;
-
-      [elTitolo, elSottotitolo, elBtn].forEach(el => {
-        el.classList.remove("animato-base");
-        void el.offsetWidth;
-        el.classList.add("animato-base");
-      });
+      elBtn.classList.remove("animato-base");
+      void elBtn.offsetWidth;
+      elBtn.classList.add("animato-base");
     }
 
     function nextSlide() {
-        indiceCorrente = (indiceCorrente + 1) % datiSlides.length;
+        indiceCorrente = (indiceCorrente + 1) % linkSlides.length;
         aggiornaSlide();
         resetTimer();
     }
 
     function prevSlide() {
-        indiceCorrente = (indiceCorrente - 1 + datiSlides.length) % datiSlides.length;
+        indiceCorrente = (indiceCorrente - 1 + linkSlides.length) % linkSlides.length;
         aggiornaSlide();
         resetTimer();
     }
 
     let autoSlide = setInterval(() => {
-        indiceCorrente = (indiceCorrente + 1) % datiSlides.length;
+        indiceCorrente = (indiceCorrente + 1) % linkSlides.length;
         aggiornaSlide();
     }, 3000);
   </script>
