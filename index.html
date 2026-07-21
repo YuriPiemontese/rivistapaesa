@@ -40,7 +40,7 @@
     }
 
     body {
-      background-color: rgba(210, 166, 85, 0.1);
+      background-color: #f7f3eb; /* Tono chiaro dello sfondo */
       color: #464228;
       font-family: "Archive Garamond Pro", Georgia, serif;
       font-size: 1.1rem;
@@ -57,12 +57,13 @@
       animation: comparsaBase 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
     }
 
-    /* Titoli in Old Standard TT e All Caps */
+    /* Titoli generali */
     h1, h2 {
       font-family: "Old Standard TT", serif;
       font-weight: 700;
       color: #464228;
       text-transform: uppercase;
+      letter-spacing: -0.05em;
     }
 
     h1 {
@@ -81,7 +82,6 @@
     header {
       width: 100%;
       height: 90px;
-      border-bottom: 1px solid rgba(70, 66, 40, 0.2);
       padding: 0 40px;
       display: flex;
       align-items: center;
@@ -120,7 +120,7 @@
     }
 
     /* ==========================================
-       4. Hero Section & Carosello (Full-Bleed)
+       4. Hero Section & Carosello
        ========================================== */
     .hero-landing {
       width: 100%;
@@ -138,7 +138,6 @@
       width: 100%;
       height: 100%;
       overflow: hidden;
-      border-radius: 0;
     }
 
     .carosello-slides {
@@ -161,7 +160,6 @@
       display: block;
     }
 
-    /* Frecce Grandi e Sottili */
     .carosello-btn {
       position: absolute;
       top: 0;
@@ -195,7 +193,6 @@
     .carosello-btn.prev:hover span { transform: translateX(-10px); }
     .carosello-btn.next:hover span { transform: translateX(10px); }
 
-    /* Posizionamento Pulsante sulla Sezione Aurea (0.618) */
     .hero-cascata {
       position: absolute;
       bottom: 40px;
@@ -225,16 +222,57 @@
     }
 
     /* ==========================================
-       5. Sezioni Generali
+       5. Sezioni Generali e Alternanza Colori
        ========================================== */
     section.sezione-sito {
-      max-width: 1200px;
-      margin: 80px auto;
-      padding: 0 40px;
-      border-top: 1px solid rgba(70, 66, 40, 0.15);
-      padding-top: 40px;
+      width: 100%;
+      padding: 80px 40px;
     }
 
+    .sezione-contenuto {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    section.sezione-sito:first-of-type {
+      padding-top: 60px;
+    }
+
+    /* Sezioni Invertite (Sfondo Scuro, Testo Chiaro) */
+    .sezione-invertita {
+      background-color: #464228;
+      color: #f7f3eb;
+    }
+
+    .sezione-invertita h1,
+    .sezione-invertita h2 {
+      color: #f7f3eb;
+    }
+
+    /* Pulsante Download per la sezione contattaci invertita */
+    .sezione-invertita .btn-download {
+      display: inline-block;
+      margin: 15px 0;
+      padding: 10px 20px;
+      border: 1px solid #f7f3eb;
+      color: #f7f3eb;
+      text-decoration: none;
+      font-family: "TrixiePro", monospace;
+      font-size: 0.9rem;
+      transition: background-color 0.2s ease;
+    }
+
+    .sezione-invertita .btn-download:hover {
+      background-color: rgba(247, 243, 235, 0.15);
+    }
+
+    .sezione-invertita .link-mail {
+      color: #f7f3eb;
+      font-weight: bold;
+      text-decoration: underline;
+    }
+
+    /* Standard Button (Sezione Chiara) */
     .btn-download {
       display: inline-block;
       margin: 15px 0;
@@ -246,17 +284,14 @@
       font-size: 0.9rem;
     }
 
-    .btn-download:hover { background-color: rgba(70, 66, 40, 0.1); }
-    .link-mail { color: #464228; font-weight: bold; text-decoration: underline; }
-
     /* ==========================================
-       6. Footer
+       6. Footer (Invertito)
        ========================================== */
     footer {
       width: 100%;
-      border-top: 1px solid rgba(70, 66, 40, 0.2);
-      padding: 40px;
-      margin-top: 100px;
+      background-color: #464228;
+      color: #f7f3eb;
+      padding: 50px 40px;
     }
 
     .footer-container {
@@ -271,23 +306,25 @@
       max-height: 45px;
       width: auto;
       display: block;
+      /* Inverte il logo scuro in chiaro se è un'immagine PNG scura */
+      filter: brightness(0) invert(1);
     }
 
     .btn-instagram {
       display: inline-block;
       font-family: "TrixiePro", monospace, sans-serif;
       font-weight: 900;
-      color: #464228;
+      color: #f7f3eb;
       text-decoration: none;
       font-size: 1.05rem;
-      border: 1px solid #464228;
+      border: 1px solid #f7f3eb;
       padding: 8px 16px;
       transition: background-color 0.2s ease, opacity 0.2s ease;
     }
 
     .btn-instagram:hover {
-      background-color: rgba(70, 66, 40, 0.1);
-      opacity: 0.8;
+      background-color: rgba(247, 243, 235, 0.15);
+      opacity: 0.9;
     }
 
     @media (max-width: 768px) {
@@ -344,30 +381,53 @@
       </div>
     </section>
 
+    <!-- Chi Siamo (Chiaro) -->
     <section id="chi-siamo" class="sezione-sito">
-      <h1 class="animato-base">Chi Siamo</h1>
-      <p class="animato-base">Siamo uno spazio libero dedicato alla diffusione di storie, saggi, visioni e poesie. La nostra missione è raccogliere voci ed espressioni capaci di raccontare il presente.</p>
+      <div class="sezione-contenuto">
+        <h1 class="animato-base">Chi Siamo</h1>
+        <p class="animato-base">Siamo uno spazio libero dedicato alla diffusione di storie, saggi, visioni e poesie. La nostra missione è raccogliere voci ed espressioni capaci di raccontare il presente.</p>
+      </div>
     </section>
 
-    <section id="contattaci" class="sezione-sito">
-      <h1 class="animato-base">Contattaci</h1>
-      <p class="animato-base">Scaricare prima le nostre linee guida editoriali:</p>
-      <p class="animato-base"><a href="assets/specifiche-editoriali.pdf" download class="btn-download">scarica specifiche editoriali (PDF)</a></p>
-      <p class="animato-base">Email: <a href="mailto:rivista.paesa@libero.it" class="link-mail">rivista.paesa@libero.it</a></p>
+    <!-- Contattaci (INVERTITA: Scuro) -->
+    <section id="contattaci" class="sezione-sito sezione-invertita">
+      <div class="sezione-contenuto">
+        <h1 class="animato-base">Contattaci</h1>
+        <p class="animato-base">Scaricare prima le nostre linee guida editoriali:</p>
+        <p class="animato-base"><a href="assets/specifiche-editoriali.pdf" download class="btn-download">scarica specifiche editoriali (PDF)</a></p>
+        <p class="animato-base">Email: <a href="mailto:rivista.paesa@libero.it" class="link-mail">rivista.paesa@libero.it</a></p>
+      </div>
     </section>
 
-    <section id="articoli" class="sezione-sito"><h1 class="animato-base">Articoli</h1></section>
-    <section id="poesie" class="sezione-sito"><h1 class="animato-base">Poesie</h1></section>
-    <section id="raccenti" class="sezione-sito"><h1 class="animato-base">Racconti</h1></section>
+    <!-- Articoli (Chiaro) -->
+    <section id="articoli" class="sezione-sito">
+      <div class="sezione-contenuto">
+        <h1 class="animato-base">Articoli</h1>
+      </div>
+    </section>
+
+    <!-- Racconti (INVERTITA: Scuro) -->
+    <section id="racconti" class="sezione-sito sezione-invertita">
+      <div class="sezione-contenuto">
+        <h1 class="animato-base">Racconti</h1>
+      </div>
+    </section>
+
+    <!-- Poesie (Chiaro) -->
+    <section id="poesie" class="sezione-sito">
+      <div class="sezione-contenuto">
+        <h1 class="animato-base">Poesie</h1>
+      </div>
+    </section>
   </main>
 
-  <!-- Footer -->
+  <!-- Footer (INVERTITO: Scuro) -->
   <footer>
     <div class="footer-container">
       <div class="footer-logo">
         <a href="/">
           <img src="assets/paesa-logo.png" alt="PAESA Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-          <span class="caption" style="display:none;">[LOGO PAESA]</span>
+          <span class="caption" style="display:none; color: #f7f3eb;">[LOGO PAESA]</span>
         </a>
       </div>
 
