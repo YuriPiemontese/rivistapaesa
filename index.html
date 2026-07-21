@@ -68,13 +68,13 @@
       margin-bottom: 20px;
     }
 
-    figcaption, .caption, .btn-articolo {
+    figcaption, .caption {
       font-family: "TrixiePro", monospace, sans-serif;
       font-weight: 900;
     }
 
     /* ==========================================
-       3. Header
+       3. Header (Menu in TrixiePro & Capitalized)
        ========================================== */
     header {
       width: 100%;
@@ -104,7 +104,9 @@
       text-decoration: none;
       color: #464228;
       font-size: 1.05rem;
-      text-transform: lowercase;
+      font-family: "TrixiePro", monospace, sans-serif; /* Applicato TrixiePro */
+      font-weight: 900;
+      text-transform: capitalize; /* Prima lettera maiuscola */
     }
 
     nav a:hover { opacity: 0.6; }
@@ -116,14 +118,14 @@
     }
 
     /* ==========================================
-       4. Hero Section & Carosello (A Tutto Schermo e A Tutta Larghezza)
+       4. Hero Section & Carosello (Full-Bleed)
        ========================================== */
     .hero-landing {
       width: 100%;
       max-width: 100%;
       margin: 0;
       padding: 0;
-      height: calc(100vh - 90px); /* 100% altezza viewport meno l'header */
+      height: calc(100vh - 90px);
       display: flex;
       align-items: center;
       overflow: hidden;
@@ -134,7 +136,7 @@
       width: 100%;
       height: 100%;
       overflow: hidden;
-      border-radius: 0; /* Rimosso arrotondamento per full-bleed */
+      border-radius: 0;
     }
 
     .carosello-slides {
@@ -153,6 +155,7 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
+      object-position: top center;
       display: block;
     }
 
@@ -190,22 +193,24 @@
     .carosello-btn.prev:hover span { transform: translateX(-10px); }
     .carosello-btn.next:hover span { transform: translateX(10px); }
 
-    /* Posizionamento del Pulsante dell'Articolo (A DESTRA) */
+    /* Posizionamento Aureo del Pulsante (Centro a 0.618 / 61.8%) */
     .hero-cascata {
       position: absolute;
       bottom: 40px;
-      right: 40px; /* Spostato a destra */
-      left: auto;
+      left: 61.8%; /* Posiziona la partenza del div al 61.8% della larghezza */
+      transform: translateX(-50%); /* Centra l'elemento su quel punto esatto */
       z-index: 15;
     }
 
     .btn-articolo {
       display: inline-block;
-      background-color: #464228; /* Colore richiesto */
+      background-color: #464228;
       color: #ffffff;
       padding: 12px 24px;
       text-decoration: none;
-      text-transform: uppercase;
+      font-family: "TrixiePro", monospace, sans-serif;
+      font-weight: 900;
+      text-transform: capitalize; /* Prima lettera maiuscola, non ALL CAPS */
       font-size: 0.95rem;
       border: none;
       cursor: pointer;
@@ -243,7 +248,7 @@
     .link-mail { color: #464228; font-weight: bold; text-decoration: underline; }
 
     @media (max-width: 768px) {
-      .hero-cascata { bottom: 25px; right: 20px; }
+      .hero-cascata { bottom: 25px; left: 50%; } /* Su mobile centralizzato per usabilità */
       .carosello-btn { width: 70px; font-size: 6rem; }
     }
   </style>
@@ -255,11 +260,11 @@
     <div class="header-container">
       <nav>
         <ul>
-          <li><a href="#chi-siamo">chi siamo</a></li>
-          <li><a href="#contattaci">contattaci</a></li>
-          <li><a href="#articoli">articoli</a></li>
-          <li><a href="#racconti">racconti</a></li>
-          <li><a href="#poesie">poesie</a></li>
+          <li><a href="#chi-siamo">Chi Siamo</a></li>
+          <li><a href="#contattaci">Contattaci</a></li>
+          <li><a href="#articoli">Articoli</a></li>
+          <li><a href="#racconti">Racconti</a></li>
+          <li><a href="#poesie">Poesie</a></li>
         </ul>
       </nav>
 
@@ -286,7 +291,7 @@
         </div>
 
         <div class="hero-cascata">
-          <a href="#" class="btn-articolo animato-base" id="heroBtn">vai all'articolo</a>
+          <a href="#" class="btn-articolo animato-base" id="heroBtn">Vai all'articolo</a>
         </div>
       </div>
     </section>
