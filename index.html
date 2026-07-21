@@ -12,20 +12,20 @@
 
   <style>
     /* ==========================================
-       1. Font Personalizzati
+       1. Font Personalizzati (PERCORSI RELATIVI CORRETTI)
        ========================================== */
     @font-face {
       font-family: 'Archive Garamond Pro';
-      src: url('/_fonts/ArchiveGaramondPro-Regular.woff2') format('woff2'),
-           url('/_fonts/ArchiveGaramondPro-Regular.ttf') format('truetype');
+      src: url('_fonts/ArchiveGaramondPro-Regular.woff2') format('woff2'),
+           url('_fonts/ArchiveGaramondPro-Regular.ttf') format('truetype');
       font-weight: normal;
       font-style: normal;
     }
 
     @font-face {
       font-family: 'TrixiePro';
-      src: url('/_fonts/TrixiePro-Heavy.woff2') format('woff2'),
-           url('/_fonts/TrixiePro-Heavy.ttf') format('truetype');
+      src: url('_fonts/TrixiePro-Heavy.woff2') format('woff2'),
+           url('_fonts/TrixiePro-Heavy.ttf') format('truetype');
       font-weight: 900;
       font-style: normal;
     }
@@ -116,7 +116,7 @@
        ========================================== */
     .hero-landing {
       max-width: 1200px;
-      margin: 30px auto 80px auto;
+      margin: 40px auto 80px auto;
       padding: 0 40px;
     }
 
@@ -124,7 +124,7 @@
       position: relative;
       width: 100%;
       overflow: hidden;
-      margin-bottom: 30px;
+      margin-bottom: 40px;
       border-radius: 4px;
     }
 
@@ -144,15 +144,14 @@
       height: 450px;
       object-fit: cover;
       display: block;
-      opacity: 0.9; /* Leggera opacità per maggior contrasto */
+      opacity: 0.9;
     }
 
-    /* FRECCE MINIMALI CON AMPIA AREA DI HOVER */
     .carosello-btn {
       position: absolute;
       top: 0;
       bottom: 0;
-      width: 90px; /* Ampia area di interazione */
+      width: 90px;
       background: transparent;
       border: none;
       color: #ffffff;
@@ -176,7 +175,6 @@
     .carosello-btn.prev { left: 0; justify-content: flex-start; padding-left: 20px; }
     .carosello-btn.next { right: 0; justify-content: flex-end; padding-right: 20px; }
 
-    /* Effetto Hover: Spostamento + Leggera Ombra */
     .carosello-btn.prev:hover span {
       transform: translateX(-6px);
       filter: drop-shadow(-2px 2px 4px rgba(0, 0, 0, 0.4));
@@ -187,7 +185,6 @@
       filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.4));
     }
 
-    /* Impaginato a Cascata (Ripristinata distanza da sinistra a 33.33%) */
     .hero-cascata {
       margin-left: 33.33%;
       display: flex;
@@ -248,7 +245,6 @@
     .btn-download:hover { background-color: rgba(70, 66, 40, 0.1); }
     .link-mail { color: #464228; font-weight: bold; text-decoration: underline; }
 
-    /* Responsive */
     @media (max-width: 768px) {
       .hero-cascata { margin-left: 0; }
       .titolo-hero { font-size: 2.8rem; }
@@ -282,10 +278,8 @@
   </header>
 
   <main>
-    <!-- Sezione 1: Landing con Carosello -->
     <section class="hero-landing">
       <div class="carosello-container">
-        <!-- Frecce Minimali -->
         <button class="carosello-btn prev" onclick="prevSlide()" aria-label="Indietro"><span>&#8249;</span></button>
         <button class="carosello-btn next" onclick="nextSlide()" aria-label="Avanti"><span>&#8250;</span></button>
 
@@ -297,7 +291,6 @@
         </div>
       </div>
 
-      <!-- Impaginato a Cascata (da 1/3 da sinistra) -->
       <div class="hero-cascata">
         <h1 class="titolo-hero animato-base" id="heroTitolo">Titolo dell'Articolo 1</h1>
         <p class="subtitle animato-base" id="heroSottotitolo">Sottotitolo in TrixiePro Heavy</p>
@@ -305,7 +298,6 @@
       </div>
     </section>
 
-    <!-- Sezioni successive -->
     <section id="chi-siamo" class="sezione-sito">
       <h1 class="animato-base">Chi Siamo</h1>
       <p class="animato-base">Siamo uno spazio libero dedicato alla diffusione di storie, saggi, visioni e poesie. La nostra missione è raccogliere voci ed espressioni capaci di raccontare il presente.</p>
