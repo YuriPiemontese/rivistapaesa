@@ -57,10 +57,12 @@
       animation: comparsaBase 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
     }
 
+    /* Titoli in Old Standard TT e All Caps */
     h1, h2 {
       font-family: "Old Standard TT", serif;
       font-weight: 700;
       color: #464228;
+      text-transform: uppercase;
     }
 
     h1 {
@@ -74,7 +76,7 @@
     }
 
     /* ==========================================
-       3. Header (Menu in TrixiePro & Capitalized)
+       3. Header
        ========================================== */
     header {
       width: 100%;
@@ -103,10 +105,10 @@
     nav a {
       text-decoration: none;
       color: #464228;
-      font-size: 1.05rem;
-      font-family: "TrixiePro", monospace, sans-serif; /* Applicato TrixiePro */
+      font-family: "TrixiePro", monospace, sans-serif;
       font-weight: 900;
-      text-transform: capitalize; /* Prima lettera maiuscola */
+      font-size: 1.05rem;
+      text-transform: capitalize;
     }
 
     nav a:hover { opacity: 0.6; }
@@ -193,12 +195,12 @@
     .carosello-btn.prev:hover span { transform: translateX(-10px); }
     .carosello-btn.next:hover span { transform: translateX(10px); }
 
-    /* Posizionamento Aureo del Pulsante (Centro a 0.618 / 61.8%) */
+    /* Posizionamento Pulsante sulla Sezione Aurea (0.618) */
     .hero-cascata {
       position: absolute;
       bottom: 40px;
-      left: 61.8%; /* Posiziona la partenza del div al 61.8% della larghezza */
-      transform: translateX(-50%); /* Centra l'elemento su quel punto esatto */
+      left: 61.8%;
+      transform: translateX(-50%);
       z-index: 15;
     }
 
@@ -210,8 +212,8 @@
       text-decoration: none;
       font-family: "TrixiePro", monospace, sans-serif;
       font-weight: 900;
-      text-transform: capitalize; /* Prima lettera maiuscola, non ALL CAPS */
       font-size: 0.95rem;
+      text-transform: capitalize;
       border: none;
       cursor: pointer;
       transition: background-color 0.2s ease, transform 0.2s ease;
@@ -247,9 +249,55 @@
     .btn-download:hover { background-color: rgba(70, 66, 40, 0.1); }
     .link-mail { color: #464228; font-weight: bold; text-decoration: underline; }
 
+    /* ==========================================
+       6. Footer
+       ========================================== */
+    footer {
+      width: 100%;
+      border-top: 1px solid rgba(70, 66, 40, 0.2);
+      padding: 40px;
+      margin-top: 100px;
+    }
+
+    .footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-logo img {
+      max-height: 45px;
+      width: auto;
+      display: block;
+    }
+
+    .btn-instagram {
+      display: inline-block;
+      font-family: "TrixiePro", monospace, sans-serif;
+      font-weight: 900;
+      color: #464228;
+      text-decoration: none;
+      font-size: 1.05rem;
+      border: 1px solid #464228;
+      padding: 8px 16px;
+      transition: background-color 0.2s ease, opacity 0.2s ease;
+    }
+
+    .btn-instagram:hover {
+      background-color: rgba(70, 66, 40, 0.1);
+      opacity: 0.8;
+    }
+
     @media (max-width: 768px) {
-      .hero-cascata { bottom: 25px; left: 50%; } /* Su mobile centralizzato per usabilità */
+      .hero-cascata { bottom: 25px; left: 50%; }
       .carosello-btn { width: 70px; font-size: 6rem; }
+      .footer-container {
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+      }
     }
   </style>
 </head>
@@ -260,11 +308,11 @@
     <div class="header-container">
       <nav>
         <ul>
-          <li><a href="#chi-siamo">Chi Siamo</a></li>
-          <li><a href="#contattaci">Contattaci</a></li>
-          <li><a href="#articoli">Articoli</a></li>
-          <li><a href="#racconti">Racconti</a></li>
-          <li><a href="#poesie">Poesie</a></li>
+          <li><a href="#chi-siamo">chi siamo</a></li>
+          <li><a href="#contattaci">contattaci</a></li>
+          <li><a href="#articoli">articoli</a></li>
+          <li><a href="#racconti">racconti</a></li>
+          <li><a href="#poesie">poesie</a></li>
         </ul>
       </nav>
 
@@ -312,6 +360,22 @@
     <section id="poesie" class="sezione-sito"><h1 class="animato-base">Poesie</h1></section>
     <section id="raccenti" class="sezione-sito"><h1 class="animato-base">Racconti</h1></section>
   </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-logo">
+        <a href="/">
+          <img src="assets/paesa-logo.png" alt="PAESA Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+          <span class="caption" style="display:none;">[LOGO PAESA]</span>
+        </a>
+      </div>
+
+      <a href="https://www.instagram.com/rivista.paesa/" target="_blank" rel="noopener noreferrer" class="btn-instagram">
+        @rivista.paesa
+      </a>
+    </div>
+  </footer>
 
   <script>
     const linkSlides = [
