@@ -5,15 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>La Nostra Rivista</title>
 
-  <!-- Google Fonts: Old Standard TT (Sempre Funzionante) -->
+  <!-- Google Fonts: Old Standard TT -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Old+Standard+TT:wght@700&display=swap" rel="stylesheet">
 
   <style>
     /* ==========================================
-       1. Font Personalizzati (Caricati da _fonts)
-       USARE '/' PRIMA PER SICUREZZA SU PAGES
+       1. Font Personalizzati
        ========================================== */
     @font-face {
       font-family: 'Archive Garamond Pro';
@@ -106,7 +105,6 @@
 
     nav a:hover { opacity: 0.6; }
 
-    /* Modificato il nome del logo */
     .logo-container img {
       max-height: 55px;
       width: auto;
@@ -114,23 +112,19 @@
     }
 
     /* ==========================================
-       4. Landing / Carosello (AGGIORNATO)
+       4. Landing / Carosello
        ========================================== */
     .hero-landing {
-      width: 100%;
-      margin: 20px 0 80px 0; /* Ridotto il margine superiore */
+      max-width: 1200px;
+      margin: 30px auto 80px auto;
       padding: 0 40px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
     }
 
     .carosello-container {
       position: relative;
       width: 100%;
-      max-width: 1200px;
       overflow: hidden;
-      margin-bottom: 20px; /* Ridotto per testi più alti */
+      margin-bottom: 30px;
       border-radius: 4px;
     }
 
@@ -143,50 +137,59 @@
     .slide {
       min-width: 100%;
       box-sizing: border-box;
-      position: relative;
     }
 
     .slide img {
       width: 100%;
-      height: 400px; /* Leggermente ridotto per layout più compatto */
+      height: 450px;
       object-fit: cover;
       display: block;
+      opacity: 0.9; /* Leggera opacità per maggior contrasto */
     }
 
-    /* Pulsanti Navigazione Carosello (AVANTI/INDIETRO) */
+    /* FRECCE MINIMALI CON AMPIA AREA DI HOVER */
     .carosello-btn {
       position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background: rgba(0, 0, 0, 0.4);
-      color: #fff;
+      top: 0;
+      bottom: 0;
+      width: 90px; /* Ampia area di interazione */
+      background: transparent;
       border: none;
-      font-size: 2rem;
-      padding: 10px 15px;
+      color: #ffffff;
+      font-size: 3.5rem;
+      font-weight: 100;
       cursor: pointer;
       z-index: 10;
-      border-radius: 50%;
-      transition: background 0.3s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      outline: none;
     }
 
-    .carosello-btn:hover { background: rgba(0, 0, 0, 0.7); }
-    .carosello-btn.prev { left: 20px; }
-    .carosello-btn.next { right: 20px; }
+    .carosello-btn span {
+      display: inline-block;
+      transition: transform 0.3s ease, filter 0.3s ease;
+      font-family: sans-serif;
+      line-height: 1;
+    }
 
-    /* Impaginato a Cascata (PIÙ IN ALTO E 1/3 AMPIEZZA) */
+    .carosello-btn.prev { left: 0; justify-content: flex-start; padding-left: 20px; }
+    .carosello-btn.next { right: 0; justify-content: flex-end; padding-right: 20px; }
+
+    /* Effetto Hover: Spostamento + Leggera Ombra */
+    .carosello-btn.prev:hover span {
+      transform: translateX(-6px);
+      filter: drop-shadow(-2px 2px 4px rgba(0, 0, 0, 0.4));
+    }
+
+    .carosello-btn.next:hover span {
+      transform: translateX(6px);
+      filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.4));
+    }
+
+    /* Impaginato a Cascata (Ripristinata distanza da sinistra a 33.33%) */
     .hero-cascata {
-      max-width: 1200px;
-      width: 100%;
-      padding: 0;
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr; /* Dividiamo in 3 */
-      gap: 15px;
-      margin-top: 10px; /* Molto più vicino al carosello */
-    }
-
-    /* Il contenuto occupa la prima e la seconda colonna */
-    .hero-content {
-      grid-column: 1 / 3; /* Occupa i primi 2/3 dell'ampiezza */
+      margin-left: 33.33%;
       display: flex;
       flex-direction: column;
       align-items: flex-start;
@@ -194,7 +197,7 @@
     }
 
     .titolo-hero {
-      font-size: 4rem; 
+      font-size: 4rem;
       line-height: 1.1;
     }
 
@@ -214,16 +217,18 @@
       font-size: 0.95rem;
       border: none;
       cursor: pointer;
+      margin-top: 5px;
+      transition: background-color 0.2s ease;
     }
 
     .btn-articolo:hover { background-color: #333333; }
 
     /* ==========================================
-       5. Sezioni Generali (SOTTO)
+       5. Sezioni Generali
        ========================================== */
     section.sezione-sito {
       max-width: 1200px;
-      margin: 60px auto;
+      margin: 80px auto;
       padding: 0 40px;
       border-top: 1px solid rgba(70, 66, 40, 0.15);
       padding-top: 40px;
@@ -245,15 +250,10 @@
 
     /* Responsive */
     @media (max-width: 768px) {
-      .hero-cascata {
-        grid-template-columns: 1fr;
-      }
-      .hero-content {
-        grid-column: 1;
-      }
-      .titolo-hero { font-size: 2.5rem; }
+      .hero-cascata { margin-left: 0; }
+      .titolo-hero { font-size: 2.8rem; }
       .slide img { height: 280px; }
-      .carosello-btn { font-size: 1.5rem; padding: 5px 10px; }
+      .carosello-btn { width: 50px; font-size: 2.5rem; }
     }
   </style>
 </head>
@@ -274,7 +274,6 @@
 
       <div class="logo-container">
         <a href="/">
-          <!-- AGGIORNATO IL NOME DEL LOGO -->
           <img src="_assets/paesa-logo.png" alt="PAESA Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
           <span class="caption" style="display:none;">[LOGO PAESA]</span>
         </a>
@@ -283,32 +282,30 @@
   </header>
 
   <main>
-    <!-- Sezione 1: Landing con Carosello (PULSANTI INSERITI) -->
+    <!-- Sezione 1: Landing con Carosello -->
     <section class="hero-landing">
       <div class="carosello-container">
-        <!-- Pulsanti di navigazione -->
-        <button class="carosello-btn prev" onclick="prevSlide()">&#10094;</button>
-        <button class="carosello-btn next" onclick="nextSlide()">&#10095;</button>
+        <!-- Frecce Minimali -->
+        <button class="carosello-btn prev" onclick="prevSlide()" aria-label="Indietro"><span>&#8249;</span></button>
+        <button class="carosello-btn next" onclick="nextSlide()" aria-label="Avanti"><span>&#8250;</span></button>
 
         <div class="carosello-slides" id="caroselloSlides">
-          <div class="slide"><img src="_assets/foto1.jpg" alt="Foto 1" onerror="this.src='https://via.placeholder.com/1200x400/d2a655/464228?text=Foto+1'"></div>
-          <div class="slide"><img src="_assets/foto2.jpg" alt="Foto 2" onerror="this.src='https://via.placeholder.com/1200x400/a68342/ffffff?text=Foto+2'"></div>
-          <div class="slide"><img src="_assets/foto3.jpg" alt="Foto 3" onerror="this.src='https://via.placeholder.com/1200x400/464228/ffffff?text=Foto+3'"></div>
-          <div class="slide"><img src="_assets/foto4.jpg" alt="Foto 4" onerror="this.src='https://via.placeholder.com/1200x400/8a6a30/ffffff?text=Foto+4'"></div>
+          <div class="slide"><img src="_assets/foto1.jpg" alt="Foto 1" onerror="this.src='https://via.placeholder.com/1200x450/d2a655/464228?text=Foto+1'"></div>
+          <div class="slide"><img src="_assets/foto2.jpg" alt="Foto 2" onerror="this.src='https://via.placeholder.com/1200x450/a68342/ffffff?text=Foto+2'"></div>
+          <div class="slide"><img src="_assets/foto3.jpg" alt="Foto 3" onerror="this.src='https://via.placeholder.com/1200x450/464228/ffffff?text=Foto+3'"></div>
+          <div class="slide"><img src="_assets/foto4.jpg" alt="Foto 4" onerror="this.src='https://via.placeholder.com/1200x450/8a6a30/ffffff?text=Foto+4'"></div>
         </div>
       </div>
 
-      <!-- Impaginato a Cascata (LAYOUT 1/3 AMPIEZZA AGGIORNATO) -->
+      <!-- Impaginato a Cascata (da 1/3 da sinistra) -->
       <div class="hero-cascata">
-        <div class="hero-content">
-          <h1 class="titolo-hero animato-base" id="heroTitolo">Titolo dell'Articolo 1</h1>
-          <p class="subtitle animato-base" id="heroSottotitolo">Sottotitolo in TrixiePro Heavy</p>
-          <a href="#" class="btn-articolo animato-base" id="heroBtn">vai all'articolo</a>
-        </div>
+        <h1 class="titolo-hero animato-base" id="heroTitolo">Titolo dell'Articolo 1</h1>
+        <p class="subtitle animato-base" id="heroSottotitolo">Sottotitolo in TrixiePro Heavy</p>
+        <a href="#" class="btn-articolo animato-base" id="heroBtn">vai all'articolo</a>
       </div>
     </section>
 
-    <!-- Sezioni successive (rimaste uguali) -->
+    <!-- Sezioni successive -->
     <section id="chi-siamo" class="sezione-sito">
       <h1 class="animato-base">Chi Siamo</h1>
       <p class="animato-base">Siamo uno spazio libero dedicato alla diffusione di storie, saggi, visioni e poesie. La nostra missione è raccogliere voci ed espressioni capaci di raccontare il presente.</p>
@@ -326,7 +323,6 @@
     <section id="raccenti" class="sezione-sito"><h1 class="animato-base">Racconti</h1></section>
   </main>
 
-  <!-- Script Carosello (PULSANTI E ANIMAZIONI GESTITI) -->
   <script>
     const datiSlides = [
       { titolo: "Titolo dell'Articolo 1", sottotitolo: "Sottotitolo 1 descrittivo", link: "#articolo-1" },
@@ -347,18 +343,15 @@
     }
 
     function aggiornaSlide() {
-      // Scorrimento immagine
       slidesContainer.style.transform = `translateX(-${indiceCorrente * 100}%)`;
 
-      // Aggiorna contenuti
       elTitolo.textContent = datiSlides[indiceCorrente].titolo;
       elSottotitolo.textContent = datiSlides[indiceCorrente].sottotitolo;
       elBtn.href = datiSlides[indiceCorrente].link;
 
-      // Riavvia animazione comparsa
       [elTitolo, elSottotitolo, elBtn].forEach(el => {
         el.classList.remove("animato-base");
-        void el.offsetWidth; // Trigger reflow
+        void el.offsetWidth;
         el.classList.add("animato-base");
       });
     }
@@ -366,7 +359,7 @@
     function nextSlide() {
         indiceCorrente = (indiceCorrente + 1) % datiSlides.length;
         aggiornaSlide();
-        resetTimer(); // Reset del timer automatico al click
+        resetTimer();
     }
 
     function prevSlide() {
@@ -375,7 +368,6 @@
         resetTimer();
     }
 
-    // Timer automatico ogni 3 secondi (mantiene lo scorrimento automatico richiesto precedentemente)
     let autoSlide = setInterval(() => {
         indiceCorrente = (indiceCorrente + 1) % datiSlides.length;
         aggiornaSlide();
