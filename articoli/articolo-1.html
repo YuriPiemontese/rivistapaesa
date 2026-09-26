@@ -105,6 +105,24 @@
     }
 
     /* ==========================================
+       3.1 Banner Principale
+       ========================================== */
+    .hero-banner {
+      width: 100%;
+      height: 742px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-banner img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+    }
+
+    /* ==========================================
        4. Struttura Articolo
        ========================================== */
     article.articolo-container {
@@ -170,12 +188,15 @@
       text-align: justify;
     }
 
+    /* Citazioni in TrixiePro */
     .articolo-corpo blockquote {
       margin: 35px 0;
       padding: 20px 25px;
       border-left: 3px solid #464228;
       background-color: rgba(70, 66, 40, 0.05);
-      font-size: 1.1rem;
+      font-family: "TrixiePro", monospace, sans-serif;
+      font-weight: 900;
+      font-size: 0.95rem;
       line-height: 1.6;
     }
 
@@ -184,16 +205,18 @@
       text-align: left;
     }
 
-    .poesia-box {
+    .citazione-trixie {
       margin: 35px 0;
       padding: 25px 30px;
       border-top: 1px solid #464228;
       border-bottom: 1px solid #464228;
-      font-style: italic;
+      font-family: "TrixiePro", monospace, sans-serif;
+      font-weight: 900;
+      font-size: 0.95rem;
       line-height: 1.8;
     }
 
-    .poesia-box p {
+    .citazione-trixie p {
       margin-bottom: 0;
       text-align: left;
     }
@@ -241,6 +264,9 @@
     }
 
     @media (max-width: 768px) {
+      .hero-banner {
+        height: 50vh;
+      }
       .articolo-header h1 { font-size: 2.1rem; }
       .footer-container {
         flex-direction: column;
@@ -274,6 +300,11 @@
     </div>
   </header>
 
+  <!-- Hero Banner Ridotto -->
+  <section class="hero-banner">
+    <img src="banner/Banner 1a.jpg" alt="Banner Paz in provincia">
+  </section>
+
   <main>
     <article class="articolo-container">
       
@@ -304,8 +335,8 @@
 
         <p>In questo piccolo aneddoto c’è già molto, tantissimo, della molteplicità di Pazienza come persona e come artista, e di ciò che di lui affascina e intenerisce: in tutto il suo operato vi è un intreccio di umanità, di voci e volti intimi della sua esistenza che sono simili e incredibilmente attuali a quelli di noi tutti.</p>
 
-        <div class="poesia-box">
-          <p>«San Severo, la città del mio pensiero, dove prospera la vite e l’inverno è alquanto mite.»<br><span class="caption">(Sturiellet)</span></p>
+        <div class="citazione-trixie">
+          <p>«San Severo, la città del mio pensiero, dove prospera la vite e l’inverno è alquanto mite.»<br>(Sturiellet)</p>
         </div>
 
         <p>C’è la piccola e bruna realtà provinciale, la San Severo degli anni ‘50, che da un acquerellista e un’insegnante di educazione tecnica tira fuori un bambino che ad appena diciotto mesi disegna dettagliatamente un orso per avere l’attenzione dei genitori. Da questo bisogno d’amore di bimbo perenne si alimenta il genio di Paz per tutta la sua esistenza: breve, sì, ma incredibilmente prolifica.</p>
@@ -316,8 +347,8 @@
 
         <p>E non dimentichiamoci del suo linguaggio identitario, con cui il genio spande e piega a piacimento la realtà. L’istantaneità spontanea di Paz, che nel suo tratto versatile unisce il comico e il tragico nello spazio di una sola tavola, derivava infatti anche dal dialetto — in molti ambienti pretesto di marginalizzazione culturale per chi "emigra" — assorbito durante la sua formazione (che non parte da Pescara, ma dagli anni dell'infanzia a San Severo).</p>
 
-        <div class="poesia-box">
-          <p>«La vita è fatta a scale, c’è chi scende, c’è chi casca e si fa male.»<br><span class="caption">(Intervista, Lucca, 1984)</span></p>
+        <div class="citazione-trixie">
+          <p>«La vita è fatta a scale, c’è chi scende, c’è chi casca e si fa male.»<br>(Intervista, Lucca, 1984)</p>
         </div>
 
         <p>Paz però corre, è andato via anche lui: prima a Pescara, dove continua la sua formazione confrontandosi con una realtà fortemente artistica e grazie all'amicizia con Stefano Tamburini e Tanino Liberatore; poi sarà la volta del DAMS a Bologna, che stravolge, infuoca e dà inizio alla sua fama di fumettista. A Roma collabora con riviste underground che hanno fatto la storia degli anni ‘70-‘80, come <em>Il Male</em>, <em>Il Cannibale</em> e <em>Frigidaire</em>, di cui è stato redattore insieme a Tamburini e Vincenzo Sparagna.</p>
@@ -330,7 +361,7 @@
 
         <p>Noi della redazione di Paesà Rivista abbiamo partecipato a Paz70, il ciclo di incontri per il settantesimo anniversario dalla nascita di Paz. Oltre ad ascoltare i contributi preziosi di chi l'ha conosciuto direttamente o l'ha studiato, come Enrico Fraccacreta e Stefano Cristante, siamo venuti a conoscenza di una splendida notizia per gli appassionati di Pazienza e di arte e cultura in generale: la Biblioteca La Magna Capitana riaprirà presto e metterà a disposizione dei lettori diversi volumi scritti da Pazienza o dedicati a lui.</p>
 
-        <div class="poesia-box">
+        <div class="citazione-trixie">
           <p>
             «Io sono un uomo molto fortunato<br>
             perché ho capito il mio ruolo nella vita,<br>
