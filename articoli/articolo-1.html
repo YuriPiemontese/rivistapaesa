@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Paz in provincia - Rivista Paesà</title>
+
+  <!-- Google Fonts: Old Standard TT -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Old+Standard+TT:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
+
+  <style>
+    /* ==========================================
+       1. Font Personalizzati
+       ========================================== */
+    @font-face {
+      font-family: "Archive Garamond Pro";
+      src: url("fonts/ArchiveGaramondPro-Regular.woff2") format("woff2"),
+           url("fonts/ArchiveGaramondPro-Regular.ttf") format("truetype");
+      font-weight: normal;
+      font-style: normal;
+    }
+
+    @font-face {
+      font-family: "TrixiePro";
+      src: url("fonts/TrixiePro-Heavy.woff2") format("woff2"),
+           url("fonts/TrixiePro-Heavy.ttf") format("truetype");
+      font-weight: 900;
+      font-style: normal;
+    }
+
+    /* ==========================================
+       2. Stili Generali
+       ========================================== */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: #f7f3eb;
+      color: #464228;
+      font-family: "Archive Garamond Pro", Georgia, serif;
+      font-size: 1.15rem;
+      line-height: 1.8;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3 {
+      font-family: "Old Standard TT", serif;
+      font-weight: 700;
+      color: #464228;
+      text-transform: uppercase;
+      letter-spacing: -0.03em;
+    }
+
+    .caption, figcaption, .meta-articolo {
+      font-family: "TrixiePro", monospace, sans-serif;
+      font-weight: 900;
+    }
+
+    /* ==========================================
+       3. Header
+       ========================================== */
+    header {
+      width: 100%;
+      height: 90px;
+      padding: 0 40px;
+      display: flex;
+      align-items: center;
+    }
+
+    .header-container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 25px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #464228;
+      font-family: "TrixiePro", monospace, sans-serif;
+      font-weight: 900;
+      font-size: 1.05rem;
+      text-transform: capitalize;
+    }
+
+    nav a:hover { opacity: 0.6; }
+
+    .logo-container img {
+      max-height: 55px;
+      width: auto;
+      display: block;
+    }
+
+    /* ==========================================
+       4. Struttura Articolo
+       ========================================== */
+    article.articolo-container {
+      max-width: 800px;
+      margin: 40px auto 100px auto;
+      padding: 0 20px;
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-bottom: 30px;
+      color: #464228;
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: opacity 0.2s ease;
+    }
+
+    .back-link:hover {
+      opacity: 0.6;
+    }
+
+    .articolo-header {
+      margin-bottom: 40px;
+    }
+
+    .articolo-header h1 {
+      font-size: 2.8rem;
+      line-height: 1.2;
+      margin-bottom: 15px;
+    }
+
+    .meta-articolo {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      color: #6e6843;
+      margin-bottom: 25px;
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .copertina-articolo {
+      width: 100%;
+      margin-bottom: 40px;
+    }
+
+    .copertina-articolo img {
+      width: 100%;
+      max-height: 500px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .copertina-articolo figcaption {
+      font-size: 0.85rem;
+      margin-top: 8px;
+      color: #6e6843;
+    }
+
+    /* Contenuto Testuale */
+    .articolo-corpo p {
+      margin-bottom: 25px;
+      text-align: justify;
+    }
+
+    .articolo-corpo blockquote {
+      margin: 35px 0;
+      padding: 20px 25px;
+      border-left: 3px solid #464228;
+      background-color: rgba(70, 66, 40, 0.05);
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+
+    .articolo-corpo blockquote p {
+      margin-bottom: 0;
+      text-align: left;
+    }
+
+    .poesia-box {
+      margin: 35px 0;
+      padding: 25px 30px;
+      border-top: 1px solid #464228;
+      border-bottom: 1px solid #464228;
+      font-style: italic;
+      line-height: 1.8;
+    }
+
+    .poesia-box p {
+      margin-bottom: 0;
+      text-align: left;
+    }
+
+    .verso-a-capo {
+      display: block;
+    }
+
+    /* ==========================================
+       5. Footer (Invertito)
+       ========================================== */
+    footer {
+      width: 100%;
+      background-color: #464228;
+      color: #f7f3eb;
+      padding: 50px 40px;
+    }
+
+    .footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-logo img {
+      max-height: 45px;
+      width: auto;
+      display: block;
+      filter: brightness(0) invert(1);
+    }
+
+    .btn-instagram {
+      display: inline-block;
+      font-family: "TrixiePro", monospace, sans-serif;
+      font-weight: 900;
+      color: #f7f3eb;
+      text-decoration: none;
+      font-size: 1.05rem;
+      border: 1px solid #f7f3eb;
+      padding: 8px 16px;
+      transition: background-color 0.2s ease, opacity 0.2s ease;
+    }
+
+    .btn-instagram:hover {
+      background-color: rgba(247, 243, 235, 0.15);
+      opacity: 0.9;
+    }
+
+    @media (max-width: 768px) {
+      .articolo-header h1 { font-size: 2.1rem; }
+      .footer-container {
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="header-container">
+      <nav>
+        <ul>
+          <li><a href="index.html#chi-siamo">chi siamo</a></li>
+          <li><a href="index.html#contattaci">contattaci</a></li>
+          <li><a href="index.html#articoli">articoli</a></li>
+          <li><a href="index.html#racconti">racconti</a></li>
+          <li><a href="index.html#poesie">poesie</a></li>
+        </ul>
+      </nav>
+
+      <div class="logo-container">
+        <a href="index.html">
+          <img src="assets/paesa-logo.png" alt="PAESA Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+          <span class="caption" style="display:none;">[LOGO PAESA]</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <article class="articolo-container">
+      
+      <a href="index.html" class="caption back-link">&#8592; torna alla home</a>
+
+      <header class="articolo-header">
+        <h1>Paz in provincia</h1>
+        <div class="meta-articolo">
+          <span>Articoli</span>
+        </div>
+      </header>
+
+      <figure class="copertina-articolo">
+        <img src="assets/foto1.jpg" alt="Andrea Pazienza" onerror="this.src='https://via.placeholder.com/1200x800/d2a655/464228?text=Paz+in+provincia'">
+        <figcaption>[Fotografia o illustrazione dell'articolo]</figcaption>
+      </figure>
+
+      <div class="articolo-corpo">
+        <p>Il cielo di questo maggio mi è parso spesso così bianco.</p>
+        <p>Nel pomeriggio del 23, invece, un azzurro profondo delimita le mura della corte del MAT (Museo dell’Alto Tavoliere) insieme a sprazzi di nuvole affusolate.</p>
+        <p>Siamo stati al primo ciclo di incontri culturali organizzati dalla regione Puglia per ricordare la nascita di uno dei suoi compaesani più geniali: Andrea Pazienza, Paz70, per l’appunto.</p>
+
+        <p>Paz, il vecchio Paz — come lo chiamavano a Montepulciano — avrebbe compiuto settant’anni quest’anno, ma già in vita aveva intuito di non poter invecchiare molto.</p>
+        <p>Sullo schermo di proiezione, al centro della corte, vengono mostrate fotografie, lettere, pagine di diario, disegni e poesie che possiamo ora visionare nel sito ufficiale curato dai fratelli di Andrea, Mariella e Michele e vedere dal vivo nella mostra al MAXXI.</p>
+        <p>A dialogare: Stefano Cristante, sociologo e autore di <em>Andrea Pazienza e l’arte del fuggiasco. La sovversione della letteratura grafica di un genio del novecento</em>, gli amici d’infanzia Enrico Fraccacreta, Luigi Damiani.</p>
+
+        <p>Tra i bellissimi interventi, provo a riportare le parole di Enrico Fraccacreta, poeta anche lui di San Severo, poiché risuonano incredibilmente familiari:</p>
+
+        <blockquote>
+          <p>“Da ragazzi eravamo soliti stare nella piazza al centro della cittadina, che ha forma di un’ellissi. Un pomeriggio notammo un nostro compaesano che camminava con un’andatura particolare, con le gambe in avanti e la testa addietro. C’era poi un incredibile puntualità nel seguire un percorso che partiva dalla ellissi della piazzetta al centro storico per poi tornare al punto di partenza. Andrea un giorno portò un cronometro e per più pomeriggi confermammo che i minuti erano sempre gli stessi. Così era Andrea, infiammava la realtà e le nostre idee per farci divertire, nella sua altitudine stava con noi.”</p>
+        </blockquote>
+
+        <p>In questo piccolo aneddoto c’è già molto, tanto, della molteplicità di Pazienza come persona e artista, ciò che di lui affascina e intenerisce: in tutto il suo operato vi è un intreccio di umanità, voci e volti intimi della sua esistenza che sono simili e incredibilmente attuali a quella di noi tutti.</p>
+
+        <div class="poesia-box">
+          <p>San Severo, la città del mio pensiero, dove prospera la vite e l’inverno è alquanto mite.<br><span class="caption">(Sturiellet)</span></p>
+        </div>
+
+        <p>C’è la piccola e bruna realtà provinciale, la San Severo degli anni ‘50, che tira fuori da un acquerellista e un’insegnante di educazione tecnica un bambino che a soli diciotto mesi disegna dettagliatamente un orso per avere l’attenzione dei suoi genitori: da questo bisogno d’amore di bimbo perenne, il genio di Paz si alimenta per tutta la sua esistenza, che è sì breve ma incredibilmente prolifica.</p>
+        
+        <p>A questo desiderio, si aggiunge una forte componente immaginifica propria di chi nasce e si forma nel tempo dilatato della provincia, la pronta attenzione e la curiosità che fa da antidoto a un incredibile tedio quando, senza gli svaghi della grande città, si sta più che bene nei pomeriggi passati in una piazzetta soleggiata con la società segreta degli amici, una seconda famiglia.</p>
+        
+        <p>Questo episodio richiama un Andrea ragazzo come possono essercene molti; nella loro altitudine crescono nella realtà di terre bistrattate, mal comprese e di volta in volta abbandonate, mete appetibili solamente di un turismo che le abbellisce e nasconde alla buona il marcio. Luoghi che si incollano addosso e non lasciano mai veramente andare nella loro bellezza tremenda; da questi spesso sboccia una sensibilità singolare, delicata poiché cristallina, forte perché ha imparato, deve imparare a fare i conti con tutto il resto.</p>
+        
+        <p>E non dimentichiamoci di un proprio linguaggio identitario, con cui il genio spande e piega a piacimento la realtà.</p>
+        
+        <p>L’istantaneità spontanea di Paz, che nel suo segno versatile unisce il comico e il tragico nello spazio di una tavola, veniva infatti anche dal dialetto — in più ambienti pretesto di marginalizzazione culturale per chi “emigra” — assorbito nella sua formazione (che non parte da Pescara, ma negli anni della sua infanzia a San Severo).</p>
+
+        <div class="poesia-box">
+          <p>La vita è fatta a scale, c’è chi scende, c’è chi casca e si fa male.</p>
+        </div>
+
+        <p>Paz corre però, è andato via anche lui, prima a Pescara, dove continua la sua formazione nel confronto di una realtà fortemente artistica e nelle amicizie di Stefano Tamburini e Tanino Liberatore.</p>
+        
+        <p>Sarà poi la volta del DAMS a Bologna, che stravolge e infuoca e dà inizio alla fama di fumettista. A Roma ha collaborato a riviste underground storiche del decennio ‘70-‘80 come <em>Il Male</em>, <em>Il Cannibale</em> e <em>Frigidaire</em>, dove è stato redattore insieme a Tamburini e Vincenzo Sparagna.</p>
+        
+        <p>Ogni estate tornava giù non appena poteva, seguendo il richiamo di sua madre Giuliana, come illustra in alcune struggenti tavole di <em>Pompeo</em>; girovaga in sella della Yamaha SRX600 per le strade assolate della Capitanata e ne combina di ogni nel campeggio di Calenella come viene raccontato da i molti che l’hanno conosciuto su quelle spiagge.</p>
+        
+        <p>Infine, Montepulciano.</p>
+
+        <p>Ricordare Andrea nella nostra provincia è un po’ come reclamare dalla terra un’intimità che perdura in un vissuto, nonostante molto lontano negli anni, straordinariamente comune; ma Paz non può appartenere mai a un solo luogo poiché è un emozione ubiqua, un espediente per ragionare sulla creatività pura e su come l’arte possa essere il magma procreativo della materia stessa della vita.</p>
+        
+        <p>Eppure, pensando al significato della disciplina odonomastica (lo studio storico e culturale dei nomi delle vie di un centro abitato) e al legame, quasi ancestrale, tra nome e luogo non posso che pensare al lungomare di San Menaio a lui dedicato e come sia proprio Paz, da sempre, figura raccontatrice di quelle rive che amiamo sin da bambini.</p>
+        
+        <p>Ogni volta ritorna come le rondini, sosta per un po’ all’ombra di un pino o un ulivo, per poi subito prendere le scalette scoscese che portano in spiaggia e, se non è cattivo tempo, possiamo vederlo diventare quella sfera rossa che in estate tinge tutto di rosa e casca, sì, senza dolore nel mare.</p>
+
+        <div class="poesia-box">
+          <p>
+            Io sono un’uomo molto fortunato<br>
+            perchè ho capito il mio ruolo nella vita,<br>
+            ho osservato la morte con i miei occhi indiscreti,<br>
+            ho visto ieri una cagna partorire<br><br>
+            e ho conosciuto i venti e le tempeste<br>
+            mille formiche arrancare sul mio corpo, io<br>
+            ho visto sogni frantumarsi, realtà violente e fiori.<br>
+            Son morto più volte per aprirmi alla vita.<br><br>
+            [...]
+          </p>
+        </div>
+      </div>
+
+    </article>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-logo">
+        <a href="index.html">
+          <img src="assets/paesa-logo.png" alt="PAESA Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+          <span class="caption" style="display:none; color: #f7f3eb;">[LOGO PAESA]</span>
+        </a>
+      </div>
+
+      <a href="https://www.instagram.com/rivista.paesa/" target="_blank" rel="noopener noreferrer" class="btn-instagram">
+        @rivista.paesa
+      </a>
+    </div>
+  </footer>
+
+</body>
+</html>
