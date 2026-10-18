@@ -3,38 +3,79 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rivista Paesà</title>
+  <title>Rivista Paesà - Home</title>
 
-  <!-- Google Fonts -->
+  <!-- Google Fonts: Old Standard TT -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Old+Standard+TT:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
 
-  <!-- CSS Principale -->
+  <!-- Foglio di Stile Unificato -->
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-  <!-- Componente Header -->
+  <!-- Header Componente -->
   <header id="site-header"></header>
 
-  <main>
-    <!-- Sezione Hero Banner Homepage -->
-    <section class="hero-banner">
-      <img src="banner/banner1a.jpg" alt="Banner Rivista Paesà">
+  <!-- Hero Banner Homepage -->
+  <section class="hero-banner">
+    <img src="banner/banner1a.jpg" alt="Banner Rivista Paesà">
+  </section>
+
+  <main style="max-width: 1200px; margin: 40px auto 100px auto; padding: 0 20px;">
+    
+    <!-- Sezione Presentazione / Chi Siamo -->
+    <section id="chi-siamo" style="margin-bottom: 60px;">
+      <h1 style="font-size: 2.8rem; margin-bottom: 20px;">Rivista Paesà</h1>
+      <p style="text-align: justify; margin-bottom: 20px;">
+        Benvenuti su Rivista Paesà, uno spazio di approfondimento culturale, storie, narrazioni del territorio, poesie e racconti.
+      </p>
     </section>
 
-    <!-- Contenuto principale Homepage -->
-    <section style="max-width: 1200px; margin: 60px auto; padding: 0 20px;">
-      <h1>Rivista Paesà</h1>
-      <p style="margin-top: 20px;">Benvenuti su Rivista Paesà.</p>
+    <!-- Sezione Articoli In Evidenza -->
+    <section id="articoli" style="margin-bottom: 60px;">
+      <h2 style="font-size: 2rem; margin-bottom: 30px; border-bottom: 1px solid #464228; padding-bottom: 10px;">Articoli</h2>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
+        <!-- Card Articolo 1 -->
+        <article style="border: 1px solid #464228; padding: 20px; background-color: rgba(70, 66, 40, 0.03);">
+          <span class="caption" style="font-size: 0.85rem; color: #6e6843;">Articoli</span>
+          <h3 style="font-size: 1.5rem; margin: 10px 0;">
+            <a href="articoli/1/articolo-1.html" style="color: #464228; text-decoration: none;">Paz in provincia</a>
+          </h3>
+          <p style="font-size: 1rem; margin-bottom: 15px;">
+            Un viaggio nel ricordo di Andrea Pazienza e nel legame viscerale con la sua terra d'origine.
+          </p>
+          <a href="articoli/1/articolo-1.html" class="caption" style="color: #464228; text-decoration: none;">Leggi l'articolo &#8594;</a>
+        </article>
+      </div>
     </section>
+
+    <!-- Sezione Racconti -->
+    <section id="racconti" style="margin-bottom: 60px;">
+      <h2 style="font-size: 2rem; margin-bottom: 30px; border-bottom: 1px solid #464228; padding-bottom: 10px;">Racconti</h2>
+      <p>Prossimamente in arrivo i racconti della redazione.</p>
+    </section>
+
+    <!-- Sezione Poesie -->
+    <section id="poesie" style="margin-bottom: 60px;">
+      <h2 style="font-size: 2rem; margin-bottom: 30px; border-bottom: 1px solid #464228; padding-bottom: 10px;">Poesie</h2>
+      <p>Prossimamente in arrivo le raccolte poetiche.</p>
+    </section>
+
+    <!-- Sezione Contattaci -->
+    <section id="contattaci">
+      <h2 style="font-size: 2rem; margin-bottom: 20px; border-bottom: 1px solid #464228; padding-bottom: 10px;">Contattaci</h2>
+      <p>Per proposte editoriali, informazioni o collaborazioni scrivi a <a href="mailto:info@rivistapaesa.it" style="color: #464228;">info@rivistapaesa.it</a>.</p>
+    </section>
+
   </main>
 
-  <!-- Componente Footer -->
+  <!-- Footer Componente -->
   <footer id="site-footer"></footer>
 
-  <!-- Script Caricamento Moduli Header / Footer -->
+  <!-- Script Caricamento Componenti Modulari -->
   <script>
     function loadComponent(id, file) {
       fetch(file)
