@@ -3,79 +3,102 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rivista Paesà - Home</title>
+  <title>La Nostra Rivista</title>
 
   <!-- Google Fonts: Old Standard TT -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Old+Standard+TT:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Old+Standard+TT:wght@700&display=swap" rel="stylesheet">
 
   <!-- Foglio di Stile Unificato -->
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-  <!-- Header Componente -->
+  <!-- Componente Header Separato -->
   <header id="site-header"></header>
 
-  <!-- Hero Banner Homepage -->
-  <section class="hero-banner">
-    <img src="banner/banner1a.jpg" alt="Banner Rivista Paesà">
-  </section>
+  <main>
+    <!-- Hero Section & Carosello -->
+    <section class="hero-landing">
+      <div class="carosello-container">
+        <button class="carosello-btn prev" onclick="prevSlide()" aria-label="Indietro"><span>&#8249;</span></button>
+        <button class="carosello-btn next" onclick="nextSlide()" aria-label="Avanti"><span>&#8250;</span></button>
 
-  <main style="max-width: 1200px; margin: 40px auto 100px auto; padding: 0 20px;">
-    
-    <!-- Sezione Presentazione / Chi Siamo -->
-    <section id="chi-siamo" style="margin-bottom: 60px;">
-      <h1 style="font-size: 2.8rem; margin-bottom: 20px;">Rivista Paesà</h1>
-      <p style="text-align: justify; margin-bottom: 20px;">
-        Benvenuti su Rivista Paesà, uno spazio di approfondimento culturale, storie, narrazioni del territorio, poesie e racconti.
-      </p>
-    </section>
+        <div class="carosello-slides" id="caroselloSlides">
+          <div class="slide"><img src="assets/foto1.jpg" alt="Foto 1" onerror="this.src='https://via.placeholder.com/1920x1080/d2a655/464228?text=Foto+1'"></div>
+          <div class="slide"><img src="assets/foto2.jpg" alt="Foto 2" onerror="this.src='https://via.placeholder.com/1920x1080/a68342/ffffff?text=Foto+2'"></div>
+          <div class="slide"><img src="assets/foto3.jpg" alt="Foto 3" onerror="this.src='https://via.placeholder.com/1920x1080/464228/ffffff?text=Foto+3'"></div>
+          <div class="slide"><img src="assets/foto4.jpg" alt="Foto 4" onerror="this.src='https://via.placeholder.com/1920x1080/8a6a30/ffffff?text=Foto+4'"></div>
+        </div>
 
-    <!-- Sezione Articoli In Evidenza -->
-    <section id="articoli" style="margin-bottom: 60px;">
-      <h2 style="font-size: 2rem; margin-bottom: 30px; border-bottom: 1px solid #464228; padding-bottom: 10px;">Articoli</h2>
-      
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
-        <!-- Card Articolo 1 -->
-        <article style="border: 1px solid #464228; padding: 20px; background-color: rgba(70, 66, 40, 0.03);">
-          <span class="caption" style="font-size: 0.85rem; color: #6e6843;">Articoli</span>
-          <h3 style="font-size: 1.5rem; margin: 10px 0;">
-            <a href="articoli/1/articolo-1.html" style="color: #464228; text-decoration: none;">Paz in provincia</a>
-          </h3>
-          <p style="font-size: 1rem; margin-bottom: 15px;">
-            Un viaggio nel ricordo di Andrea Pazienza e nel legame viscerale con la sua terra d'origine.
-          </p>
-          <a href="articoli/1/articolo-1.html" class="caption" style="color: #464228; text-decoration: none;">Leggi l'articolo &#8594;</a>
-        </article>
+        <div class="hero-cascata">
+          <a href="articoli/1/articolo-1.html" class="btn-articolo animato-base" id="heroBtn">Vai all'articolo</a>
+        </div>
       </div>
     </section>
 
-    <!-- Sezione Racconti -->
-    <section id="racconti" style="margin-bottom: 60px;">
-      <h2 style="font-size: 2rem; margin-bottom: 30px; border-bottom: 1px solid #464228; padding-bottom: 10px;">Racconti</h2>
-      <p>Prossimamente in arrivo i racconti della redazione.</p>
+    <!-- Chi Siamo (Chiaro) -->
+    <section id="chi-siamo" class="sezione-sito">
+      <div class="sezione-contenuto">
+        <h1 class="animato-base">Chi Siamo</h1>
+        <p class="animato-base">Siamo uno spazio libero dedicato alla diffusione di storie, saggi, visioni e poesie. La nostra missione è raccogliere voci ed espressioni capaci di raccontare il presente.</p>
+      </div>
     </section>
 
-    <!-- Sezione Poesie -->
-    <section id="poesie" style="margin-bottom: 60px;">
-      <h2 style="font-size: 2rem; margin-bottom: 30px; border-bottom: 1px solid #464228; padding-bottom: 10px;">Poesie</h2>
-      <p>Prossimamente in arrivo le raccolte poetiche.</p>
+    <!-- Contattaci (INVERTITA: Scuro) -->
+    <section id="contattaci" class="sezione-sito sezione-invertita">
+      <div class="sezione-contenuto">
+        <h1 class="animato-base">Contattaci</h1>
+        <p class="animato-base">Scaricare prima le nostre linee guida editoriali:</p>
+        <p class="animato-base"><a href="assets/specifiche-editoriali.pdf" download class="btn-download">scarica specifiche editoriali (PDF)</a></p>
+        <p class="animato-base">Email: <a href="mailto:rivista.paesa@libero.it" class="link-mail">rivista.paesa@libero.it</a></p>
+      </div>
     </section>
 
-    <!-- Sezione Contattaci -->
-    <section id="contattaci">
-      <h2 style="font-size: 2rem; margin-bottom: 20px; border-bottom: 1px solid #464228; padding-bottom: 10px;">Contattaci</h2>
-      <p>Per proposte editoriali, informazioni o collaborazioni scrivi a <a href="mailto:info@rivistapaesa.it" style="color: #464228;">info@rivistapaesa.it</a>.</p>
+    <!-- Articoli (Chiaro) -->
+    <section id="articoli" class="sezione-sito">
+      <div class="sezione-contenuto">
+        <h1 class="animato-base" style="margin-bottom: 40px;">Articoli</h1>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
+          <!-- Card Articolo 1 -->
+          <article class="animato-base" style="border: 1px solid #464228; padding: 25px; background-color: rgba(70, 66, 40, 0.03);">
+            <span class="caption" style="font-size: 0.85rem; color: #6e6843; text-transform: uppercase;">Articoli</span>
+            <h2 style="font-size: 1.6rem; margin: 12px 0 8px 0; text-transform: none;">
+              <a href="articoli/1/articolo-1.html" style="color: #464228; text-decoration: none;">Paz in provincia</a>
+            </h2>
+            <p class="caption" style="font-size: 0.85rem; margin-bottom: 15px;">
+              <a href="redattori/guerragabriella/index.html" class="autore-link">di Gabriella D. Guerra</a>
+            </p>
+            <p style="font-size: 1rem; margin-bottom: 20px; line-height: 1.6;">
+              Un viaggio nel ricordo di Andrea Pazienza e nel legame viscerale con la sua terra d'origine.
+            </p>
+            <a href="articoli/1/articolo-1.html" class="caption" style="color: #464228; text-decoration: none; font-weight: 900;">Leggi l'articolo &#8594;</a>
+          </article>
+        </div>
+      </div>
     </section>
 
+    <!-- Racconti (INVERTITA: Scuro) -->
+    <section id="racconti" class="sezione-sito sezione-invertita">
+      <div class="sezione-contenuto">
+        <h1 class="animato-base">Racconti</h1>
+      </div>
+    </section>
+
+    <!-- Poesie (Chiaro) -->
+    <section id="poesie" class="sezione-sito">
+      <div class="sezione-contenuto">
+        <h1 class="animato-base">Poesie</h1>
+      </div>
+    </section>
   </main>
 
-  <!-- Footer Componente -->
+  <!-- Componente Footer Separato -->
   <footer id="site-footer"></footer>
 
-  <!-- Script Caricamento Componenti Modulari -->
+  <!-- Script Caricamento Componenti Modulari (Header & Footer) -->
   <script>
     function loadComponent(id, file) {
       fetch(file)
@@ -88,6 +111,51 @@
 
     loadComponent('site-header', 'components/header.html');
     loadComponent('site-footer', 'components/footer.html');
+  </script>
+
+  <!-- Script Carosello Landing -->
+  <script>
+    const linkSlides = [
+      "articoli/1/articolo-1.html",
+      "#articolo-2",
+      "#articolo-3",
+      "#articolo-4"
+    ];
+
+    let indiceCorrente = 0;
+    const slidesContainer = document.getElementById("caroselloSlides");
+    const elBtn = document.getElementById("heroBtn");
+
+    function resetTimer() {
+        clearInterval(autoSlide);
+        autoSlide = setInterval(aggiornaSlide, 3000);
+    }
+
+    function aggiornaSlide() {
+      slidesContainer.style.transform = `translateX(-${indiceCorrente * 100}%)`;
+      elBtn.href = linkSlides[indiceCorrente];
+
+      elBtn.classList.remove("animato-base");
+      void elBtn.offsetWidth;
+      elBtn.classList.add("animato-base");
+    }
+
+    function nextSlide() {
+        indiceCorrente = (indiceCorrente + 1) % linkSlides.length;
+        aggiornaSlide();
+        resetTimer();
+    }
+
+    function prevSlide() {
+        indiceCorrente = (indiceCorrente - 1 + linkSlides.length) % linkSlides.length;
+        aggiornaSlide();
+        resetTimer();
+    }
+
+    let autoSlide = setInterval(() => {
+        indiceCorrente = (indiceCorrente + 1) % linkSlides.length;
+        aggiornaSlide();
+    }, 3000);
   </script>
 
 </body>
