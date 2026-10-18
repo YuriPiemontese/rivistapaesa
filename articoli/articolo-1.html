@@ -56,7 +56,7 @@
       letter-spacing: -0.03em;
     }
 
-    .caption, figcaption, .meta-articolo {
+    .caption, figcaption, .meta-articolo, .autore-link {
       font-family: "TrixiePro", monospace, sans-serif;
       font-weight: 900;
     }
@@ -156,10 +156,27 @@
       font-size: 0.9rem;
       text-transform: uppercase;
       color: #6e6843;
-      margin-bottom: 25px;
+      margin-bottom: 15px;
       display: flex;
       gap: 20px;
       flex-wrap: wrap;
+    }
+
+    .autore-link {
+      display: inline-block;
+      color: #464228;
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: opacity 0.2s ease;
+    }
+
+    .autore-link:hover {
+      opacity: 0.6;
+    }
+
+    .articolo-firma-finale {
+      margin-top: 40px;
+      text-align: right;
     }
 
     .articolo-img {
@@ -289,7 +306,7 @@
     </div>
   </header>
 
-  <!-- Hero Banner 100% Width (Percorso: articoli/1/banner/banner1a.jpg) -->
+  <!-- Hero Banner 100% Width -->
   <section class="hero-banner">
     <img src="1/banner/banner1a.jpg" alt="Banner Paz in provincia">
   </section>
@@ -303,6 +320,9 @@
         <h1>Paz in provincia</h1>
         <div class="meta-articolo">
           <span>Articoli</span>
+        </div>
+        <div>
+          <a href="../redattori/guerragabriella/index.html" class="autore-link">di Gabriella D. Guerra</a>
         </div>
       </header>
 
@@ -386,6 +406,11 @@
             Son morto più volte per aprirmi alla vita.<br>
             [...]»
           </p>
+        </div>
+
+        <!-- Firma dell'autore a fine articolo -->
+        <div class="articolo-firma-finale">
+          <a href="../redattori/guerragabriella/index.html" class="autore-link">di Gabriella D. Guerra</a>
         </div>
       </div>
 
