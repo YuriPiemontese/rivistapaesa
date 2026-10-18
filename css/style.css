@@ -35,12 +35,26 @@ body {
   overflow-x: hidden;
 }
 
+@keyframes comparsaBase {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animato-base {
+  animation: comparsaBase 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
 h1, h2, h3 {
   font-family: "Old Standard TT", serif;
   font-weight: 700;
   color: #464228;
   text-transform: uppercase;
   letter-spacing: -0.03em;
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
 }
 
 .caption, figcaption, .meta-articolo, .autore-link {
@@ -66,10 +80,11 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 20px;
 }
 
 .header-nav {
-  flex: 1;
+  flex: 2;
   display: flex;
   justify-content: flex-start;
 }
@@ -77,7 +92,8 @@ header {
 .header-nav ul {
   display: flex;
   list-style: none;
-  gap: 25px;
+  gap: 20px;
+  white-space: nowrap;
 }
 
 .header-nav a {
@@ -88,6 +104,7 @@ header {
   font-size: 1.05rem;
   text-transform: capitalize;
   transition: opacity 0.2s ease;
+  white-space: nowrap;
 }
 
 .header-nav a:hover {
@@ -122,6 +139,7 @@ header {
   font-weight: 900;
   font-size: 0.95rem;
   transition: opacity 0.2s ease;
+  white-space: nowrap;
 }
 
 .btn-instagram-header:hover {
@@ -135,7 +153,7 @@ header {
 }
 
 /* ==========================================
-   4. Banner Principale
+   4. Banner Principale & Hero Landing
    ========================================== */
 .hero-banner {
   width: 100%;
@@ -150,8 +168,167 @@ header {
   display: block;
 }
 
+.hero-landing {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  height: calc(100vh - 90px);
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.carosello-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.carosello-slides {
+  display: flex;
+  transition: transform 0.6s ease-in-out;
+  width: 100%;
+  height: 100%;
+}
+
+.slide {
+  min-width: 100%;
+  height: 100%;
+}
+
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+}
+
+.carosello-btn {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 160px;
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  font-size: 14rem;
+  font-weight: 100;
+  cursor: pointer;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  outline: none;
+  user-select: none;
+}
+
+.carosello-btn span {
+  display: inline-block;
+  transition: transform 0.3s ease;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 100;
+  line-height: 1;
+}
+
+.carosello-btn.prev { left: 0; justify-content: flex-start; padding-left: 20px; }
+.carosello-btn.next { right: 0; justify-content: flex-end; padding-right: 20px; }
+
+.carosello-btn.prev:hover span { transform: translateX(-10px); }
+.carosello-btn.next:hover span { transform: translateX(10px); }
+
+.hero-cascata {
+  position: absolute;
+  bottom: 40px;
+  left: 61.8%;
+  transform: translateX(-50%);
+  z-index: 15;
+}
+
+.btn-articolo {
+  display: inline-block;
+  background-color: #464228;
+  color: #ffffff;
+  padding: 12px 24px;
+  text-decoration: none;
+  font-family: "TrixiePro", monospace, sans-serif;
+  font-weight: 900;
+  font-size: 0.95rem;
+  text-transform: capitalize;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.btn-articolo:hover {
+  background-color: #33301d;
+  transform: translateY(-2px);
+}
+
 /* ==========================================
-   5. Struttura Articoli / Pagine
+   5. Sezioni Sito e Alternanza Colori
+   ========================================== */
+section.sezione-sito {
+  width: 100%;
+  padding: 80px 40px;
+}
+
+.sezione-contenuto {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+section.sezione-sito:first-of-type {
+  padding-top: 60px;
+}
+
+.sezione-invertita {
+  background-color: #464228;
+  color: #f7f3eb;
+}
+
+.sezione-invertita h1,
+.sezione-invertita h2 {
+  color: #f7f3eb;
+}
+
+.sezione-invertita .btn-download {
+  display: inline-block;
+  margin: 15px 0;
+  padding: 10px 20px;
+  border: 1px solid #f7f3eb;
+  color: #f7f3eb;
+  text-decoration: none;
+  font-family: "TrixiePro", monospace;
+  font-size: 0.9rem;
+  transition: background-color 0.2s ease;
+}
+
+.sezione-invertita .btn-download:hover {
+  background-color: rgba(247, 243, 235, 0.15);
+}
+
+.sezione-invertita .link-mail {
+  color: #f7f3eb;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.btn-download {
+  display: inline-block;
+  margin: 15px 0;
+  padding: 10px 20px;
+  border: 1px solid #464228;
+  color: #464228;
+  text-decoration: none;
+  font-family: "TrixiePro", monospace;
+  font-size: 0.9rem;
+}
+
+/* ==========================================
+   6. Struttura Articoli e Immagini
    ========================================== */
 article.articolo-container {
   max-width: 800px;
@@ -259,7 +436,7 @@ article.articolo-container {
 }
 
 /* ==========================================
-   6. Footer Component
+   7. Footer Component
    ========================================== */
 footer {
   width: 100%;
@@ -283,25 +460,36 @@ footer {
   filter: brightness(0) invert(1);
 }
 
-.btn-instagram {
-  display: inline-block;
-  font-family: "TrixiePro", monospace, sans-serif;
-  font-weight: 900;
-  color: #f7f3eb;
-  text-decoration: none;
-  font-size: 1.05rem;
-  border: 1px solid #f7f3eb;
-  padding: 8px 16px;
-  transition: background-color 0.2s ease, opacity 0.2s ease;
+.footer-social {
+  display: flex;
+  justify-content: flex-end;
 }
 
-.btn-instagram:hover {
-  background-color: rgba(247, 243, 235, 0.15);
-  opacity: 0.9;
+.btn-instagram-footer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #f7f3eb;
+  text-decoration: none;
+  font-family: "TrixiePro", monospace, sans-serif;
+  font-weight: 900;
+  font-size: 0.95rem;
+  transition: opacity 0.2s ease;
+  white-space: nowrap;
+}
+
+.btn-instagram-footer:hover {
+  opacity: 0.7;
+}
+
+.btn-instagram-footer svg {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
 }
 
 /* ==========================================
-   7. Media Queries (Mobile)
+   8. Media Queries (Mobile)
    ========================================== */
 @media (max-width: 900px) {
   header {
@@ -316,8 +504,20 @@ footer {
     justify-content: center;
     width: 100%;
   }
+  .header-nav ul {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
   .header-logo {
     order: -1;
+  }
+  .hero-cascata { 
+    bottom: 25px; 
+    left: 50%; 
+  }
+  .carosello-btn { 
+    width: 70px; 
+    font-size: 6rem; 
   }
   .articolo-header h1 { 
     font-size: 2.1rem; 
