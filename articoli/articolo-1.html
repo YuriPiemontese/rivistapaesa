@@ -105,26 +105,23 @@
     }
 
     /* ==========================================
-       3.1 Banner Principale (Larghezza 100%)
+       3.1 Banner Principale (A tutta larghezza)
        ========================================== */
-    /* ==========================================
-   3.1 Banner Principale (A tutta larghezza e proporzionato)
-   ========================================== */
-.hero-banner {
-  width: 100%;
-  height: auto;
-  position: relative;
-  overflow: hidden;
-}
+    .hero-banner {
+      width: 100%;
+      height: auto;
+      position: relative;
+      overflow: hidden;
+    }
 
-.hero-banner img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
+    .hero-banner img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
 
     /* ==========================================
-       4. Struttura Articolo
+       4. Struttura Articolo e Immagini
        ========================================== */
     article.articolo-container {
       max-width: 800px;
@@ -165,22 +162,16 @@
       flex-wrap: wrap;
     }
 
-    .copertina-articolo {
+    .articolo-img {
       width: 100%;
-      margin-bottom: 40px;
-    }
-
-    .copertina-articolo img {
-      width: 100%;
-      max-height: 500px;
-      object-fit: cover;
+      margin: 35px 0;
       display: block;
     }
 
-    .copertina-articolo figcaption {
-      font-size: 0.85rem;
-      margin-top: 8px;
-      color: #6e6843;
+    .articolo-img img {
+      width: 100%;
+      height: auto;
+      display: block;
     }
 
     /* Contenuto Testuale */
@@ -265,9 +256,6 @@
     }
 
     @media (max-width: 768px) {
-      .hero-banner {
-        height: 50vh;
-      }
       .articolo-header h1 { font-size: 2.1rem; }
       .footer-container {
         flex-direction: column;
@@ -301,9 +289,9 @@
     </div>
   </header>
 
-  <!-- Hero Banner 100% Width (Percorso interno ad articoli) -->
+  <!-- Hero Banner 100% Width (Percorso: articoli/1/banner/banner1a.jpg) -->
   <section class="hero-banner">
-    <img src="banner/banner1a.jpg" alt="Banner Paz in provincia">
+    <img src="1/banner/banner1a.jpg" alt="Banner Paz in provincia">
   </section>
 
   <main>
@@ -318,15 +306,17 @@
         </div>
       </header>
 
-      <figure class="copertina-articolo">
-        <img src="../assets/foto1.jpg" alt="Andrea Pazienza" onerror="this.src='https://via.placeholder.com/1200x800/d2a655/464228?text=Paz+in+provincia'">
-        <figcaption>[Fotografia o illustrazione dell'articolo]</figcaption>
-      </figure>
-
       <div class="articolo-corpo">
         <p>Il cielo di questo maggio mi è parso spesso bianco. Nel pomeriggio del 23, invece, un azzurro profondo delimita le mura della corte del MAT (Museo dell’Alto Tavoliere), insieme a sprazzi di nuvole affusolate. Siamo stati al primo ciclo di incontri culturali organizzati dalla Regione Puglia per ricordare la nascita di uno dei suoi compaesani più geniali: Andrea Pazienza, Paz70, per l'appunto.</p>
 
-        <p>Paz, il vecchio Paz — come lo chiamavano a Montepulciano — avrebbe compiuto settant’anni quest’anno, ma già in vita aveva intuito che non sarebbe invecchiato molto. Sullo schermo di proiezione, al centro della corte, vengono mostrate fotografie, lettere, pagine di diario, disegni e poesie che possiamo ora consultare sul sito ufficiale curato dai fratelli di Andrea, Mariella e Michele, e vedere dal vivo nella mostra al MAXXI. A dialogare ci sono Stefano Cristante, sociologo e autore di <em>Andrea Pazienza e l’arte del fuggiasco. La sovversione della letteratura grafica di un genio del Novecento</em>, e gli amici d’infanzia Enrico Fraccacreta e Luigi Damiani.</p>
+        <p>Paz, il vecchio Paz — come lo chiamavano a Montepulciano — avrebbe compiuto settant’anni quest’anno, ma già in vita aveva intuito che non sarebbe invecchiato molto. Sullo schermo di proiezione, al centro della corte, vengono mostrate fotografie, lettere, pagine di diario, disegni e poesie che possiamo ora consultare sul sito ufficiale curato dai fratelli di Andrea, Mariella e Michele, e vedere dal vivo nella mostra al MAXXI.</p>
+
+        <!-- Immagine 1 -->
+        <div class="articolo-img">
+          <img src="1/1.png" alt="Foto 1">
+        </div>
+
+        <p>A dialogare ci sono Stefano Cristante, sociologo e autore di <em>Andrea Pazienza e l’arte del fuggiasco. La sovversione della letteratura grafica di un genio del Novecento</em>, e gli amici d’infanzia Enrico Fraccacreta e Luigi Damiani.</p>
 
         <p>Tra i bellissimi interventi, provo a riportare le parole di Enrico Fraccacreta, poeta anche lui di San Severo, poiché risuonano incredibilmente familiari:</p>
 
@@ -335,6 +325,11 @@
         </blockquote>
 
         <p>In questo piccolo aneddoto c’è già molto, tantissimo, della molteplicità di Pazienza come persona e come artista, e di ciò che di lui affascina e intenerisce: in tutto il suo operato vi è un intreccio di umanità, di voci e volti intimi della sua esistenza che sono simili e incredibilmente attuali a quelli di noi tutti.</p>
+
+        <!-- Immagine 2 -->
+        <div class="articolo-img">
+          <img src="1/2.png" alt="Foto 2">
+        </div>
 
         <div class="citazione-trixie">
           <p>«San Severo, la città del mio pensiero, dove prospera la vite e l’inverno è alquanto mite.»<br>(Sturiellet)</p>
@@ -346,7 +341,14 @@
 
         <p>Questo episodio richiama un Andrea ragazzo come ce ne possono essere molti. Nella loro altitudine, questi giovani crescono nella realtà di terre bistrattate, mal comprese e di volta in volta abbandonate, mete appetibili solo per un turismo che le abbellisce e ne nasconde alla buona il marcio. Luoghi che si incollano addosso e non ti lasciano mai andare davvero, con la loro bellezza tremenda; da essi sboccia spesso una sensibilità singolare, delicata perché cristallina, e forte perché ha imparato — e deve imparare — a fare i conti con tutto il resto.</p>
 
-        <p>E non dimentichiamoci del suo linguaggio identitario, con cui il genio spande e piega a piacimento la realtà. L’istantaneità spontanea di Paz, che nel suo tratto versatile unisce il comico e il tragico nello spazio di una sola tavola, derivava infatti anche dal dialetto — in molti ambienti pretesto di marginalizzazione culturale per chi "emigra" — assorbito durante la sua formazione (che non parte da Pescara, ma dagli anni dell'infanzia a San Severo).</p>
+        <p>E non dimentichiamoci del suo linguaggio identitario, con cui il genio spande e piega a piacimento la realtà.</p>
+
+        <!-- Immagine 3 -->
+        <div class="articolo-img">
+          <img src="1/3.png" alt="Foto 3">
+        </div>
+
+        <p>L’istantaneità spontanea di Paz, che nel suo tratto versatile unisce il comico e il tragico nello spazio di una sola tavola, derivava infatti anche dal dialetto — in molti ambienti pretesto di marginalizzazione culturale per chi "emigra" — assorbito durante la sua formazione (che non parte da Pescara, ma dagli anni dell'infanzia a San Severo).</p>
 
         <div class="citazione-trixie">
           <p>«La vita è fatta a scale, c’è chi scende, c’è chi casca e si fa male.»<br>(Intervista, Lucca, 1984)</p>
@@ -354,11 +356,21 @@
 
         <p>Paz però corre, è andato via anche lui: prima a Pescara, dove continua la sua formazione confrontandosi con una realtà fortemente artistica e grazie all'amicizia con Stefano Tamburini e Tanino Liberatore; poi sarà la volta del DAMS a Bologna, che stravolge, infuoca e dà inizio alla sua fama di fumettista. A Roma collabora con riviste underground che hanno fatto la storia degli anni ‘70-‘80, come <em>Il Male</em>, <em>Il Cannibale</em> e <em>Frigidaire</em>, di cui è stato redattore insieme a Tamburini e Vincenzo Sparagna.</p>
 
-        <p>Ogni estate tornava giù non appena poteva, seguendo il richiamo di sua madre Giuliana, come illustra in alcune struggenti tavole di <em>Pompeo</em>. Girovaga in sella alla sua Yamaha SRX600 per les strade assolate della Capitanata e ne combina di tutti i colori nel campeggio di Calenella, come raccontano i molti che l’hanno conosciuto su quelle spiagge. Infine, Montepulciano.</p>
+        <p>Ogni estate tornava giù non appena poteva, seguendo il richiamo di sua madre Giuliana, come illustra in alcune struggenti tavole di <em>Pompeo</em>. Girovaga in sella alla sua Yamaha SRX600 per le strade assolate della Capitanata e ne combina di tutti i colori nel campeggio di Calenella, come raccontano i molti che l’hanno conosciuto su quelle spiagge. Infine, Montepulciano.</p>
+
+        <!-- Immagine 4 -->
+        <div class="articolo-img">
+          <img src="1/4.png" alt="Foto 4">
+        </div>
 
         <p>Ricordare Andrea nella nostra provincia è un po’ come reclamare dalla terra un’intimità che perdura nel vissuto, sebbene distante negli anni, ma straordinariamente comune. Paz, tuttavia, non può appartenere mai a un solo luogo, poiché è un’emozione ubiqua, uno spunto per ragionare sulla creatività pura e su come l’arte possa essere il magma generativo della materia stessa della vita.</p>
 
-        <p>Eppure, pensando al significato della disciplina odonomastica (lo studio storico e culturale dei nomi delle vie) e al legame quasi ancestrale tra nome e luogo, non posso non pensare al lungomare di San Menaio a lui dedicato e a come Paz sia, da sempre, la figura che meglio racconta quelle rive che amiamo fin da bambini. Ogni volta ritorna come les rondini: sosta per un po’ all’ombra di un pino o di un ulivo, per poi imboccare subito le scalette scoscese che portano in spiaggia. E, se non fa brutto tempo, possiamo vederlo trasformarsi in quella sfera rossa che d'estate tinge tutto di rosa e casca — sì, senza dolore — nel mare.</p>
+        <p>Eppure, pensando al significato della disciplina odonomastica (lo studio storico e culturale dei nomi delle vie) e al legame quasi ancestrale tra nome e luogo, non posso non pensare al lungomare di San Menaio a lui dedicato e a come Paz sia, da sempre, la figura che meglio racconta quelle rive che amiamo fin da bambini. Ogni volta ritorna come le rondini: sosta per un po’ all’ombra di un pino o di un ulivo, per poi imboccare subito le scalette scoscese che portano in spiaggia. E, se non fa brutto tempo, possiamo vederlo trasformarsi in quella sfera rossa che d'estate tinge tutto di rosa e casca — sì, senza dolore — nel mare.</p>
+
+        <!-- Immagine 5 -->
+        <div class="articolo-img">
+          <img src="1/5.png" alt="Foto 5">
+        </div>
 
         <p>Noi della redazione di Paesà Rivista abbiamo partecipato a Paz70, il ciclo di incontri per il settantesimo anniversario dalla nascita di Paz. Oltre ad ascoltare i contributi preziosi di chi l'ha conosciuto direttamente o l'ha studiato, come Enrico Fraccacreta e Stefano Cristante, siamo venuti a conoscenza di una splendida notizia per gli appassionati di Pazienza e di arte e cultura in generale: la Biblioteca La Magna Capitana riaprirà presto e metterà a disposizione dei lettori diversi volumi scritti da Pazienza o dedicati a lui.</p>
 
