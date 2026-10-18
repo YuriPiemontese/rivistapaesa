@@ -132,19 +132,20 @@
   <!-- Componente Footer -->
   <footer id="site-footer"></footer>
 
-  <!-- Script Caricamento Moduli Header / Footer -->
+  <!-- Script Caricamento Componenti Modulari -->
   <script>
-    function loadComponent(id, file) {
+    function loadComponent(id, file, prefix = '') {
       fetch(file)
         .then(res => res.text())
         .then(data => {
-          document.getElementById(id).innerHTML = data;
+          let html = data.replace(/\{\{base\}\}/g, prefix);
+          document.getElementById(id).innerHTML = html;
         })
         .catch(err => console.error('Errore caricamento componente:', err));
     }
 
-    loadComponent('site-header', '../../components/header.html');
-    loadComponent('site-footer', '../../components/footer.html');
+    loadComponent('site-header', '../../components/header.html', '../../');
+    loadComponent('site-footer', '../../components/footer.html', '../../');
   </script>
 
 </body>
